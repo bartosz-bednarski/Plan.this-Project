@@ -1,0 +1,30 @@
+.header-container {
+  width: 98vw;
+  background-color: white;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 1vh 1vw;
+  align-items: center;
+}
+
+ul li {
+  font-family: "PT Serif", serif;
+
+  font-family: "Roboto Flex", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+  list-style-type: none;
+  display: inline;
+  font-size: 24px;
+  padding: 0 1em;
+}
+.link {
+  color: rgba(255, 0, 107, 0.48);
+  text-decoration: none;
+}
+.active {
+  color: #f3066a;
+  text-decoration: none;
+}
+li:hover {
+  cursor: pointer;
+}

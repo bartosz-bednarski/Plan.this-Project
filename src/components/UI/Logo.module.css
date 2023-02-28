@@ -1,0 +1,18 @@
+.logo {
+  font-family: "Grand Hotel", cursive;
+  font-size: 36px;
+  background: linear-gradient(
+    to right,
+    #eb3677 0%,
+    #eb3677 57%,
+    #4b79ef 57%,
+    #4b79ef 60%,
+    #f3066a 60%,
+    #f3066a 100%
+  );
+  background-clip: text;
+  /*add this line, it defines how far the background should extend within an element, here we set it to text */
+  -webkit-background-clip: text;
+  /* add this line, for browsers compatibility */
+  -webkit-text-fill-color: transparent;
+}
