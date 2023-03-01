@@ -1,0 +1,75 @@
+.task {
+  width: 35.75vw;
+  height: 2vh;
+  margin: 1vh 0;
+  padding: 1vh 1vw;
+  background: #ffffff;
+  border: 2px solid #2706f3;
+  border-radius: 10px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+}
+.task:hover {
+  cursor: pointer;
+}
+.add-task:hover {
+  stroke: white;
+  background-color: #f3066a;
+}
+.task-time {
+  margin: 0 1vw 0 0;
+}
+.plus {
+  height: 3vh;
+  width: 2vw;
+  margin: 0 auto;
+}
+
+.add-task {
+  text-align: center;
+}
+.add-task-form {
+  height: 8vh;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1vh;
+}
+.input-container button {
+  padding: 0.3vh 1vw;
+  width: auto;
+  font-size: 20px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: grey;
+}
+input[type="number"] {
+  width: 1.2vw;
+  margin: 0;
+  padding: 0 0.1vw;
+
+  -moz-appearance: textfield;
+}
+input[type="text"] {
+  margin-left: 1vw;
+  width: 25vw;
+}

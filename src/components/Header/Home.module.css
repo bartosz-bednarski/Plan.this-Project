@@ -1,0 +1,84 @@
+.hero-container {
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+}
+.hero-box {
+  display: flex;
+  flex-direction: row;
+  height: 80vh;
+  width: 90vw;
+  background: rgba(255, 255, 255, 0.77);
+  border: 5px solid rgba(39, 6, 243, 0.17);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  margin: 4vh 1.75vw 2vh 3.5vw;
+  width: 39.75vw;
+  text-align: center;
+}
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  margin: 4vh 3.5vw 2vh 1.75vw;
+  width: 39.75vw;
+  row-gap: 5vh;
+}
+.stickers-box {
+  width: 32.4vw;
+  height: 13.8vh;
+  margin: 0 3.7vw;
+  display: flex;
+  flex-direction: row;
+  column-gap: 4vw;
+}
+.day-name {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28.13px;
+  color: #7e7e7e;
+}
+.day-number {
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 42.19px;
+  color: #000000;
+}
+.month-name {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.13px;
+  color: #787171;
+}
+.temperature {
+  font-weight: 700;
+  font-size: 24px;
+}
+.header-1 {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 72px;
+}
+.tasks-list {
+  height: auto;
+  list-style-type: none;
+  text-align: left;
+  margin: 2vh;
+  padding: 0;
+}
+
+.header-2 {
+  font-family: "Habibi", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 50px;
+  color: #f3066a;
+}

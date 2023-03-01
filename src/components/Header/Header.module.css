@@ -1,13 +1,13 @@
 .header-container {
-  width: 98vw;
-  background-color: white;
+  width: 90vw;
+  height: 6vh;
   display: inline-flex;
   justify-content: space-between;
-  padding: 1vh 1vw;
+  padding: 2vh 5vw;
   align-items: center;
 }
 
-ul li {
+.header-container ul li {
   font-family: "PT Serif", serif;
 
   font-family: "Roboto Flex", sans-serif;
@@ -17,14 +17,14 @@ ul li {
   font-size: 24px;
   padding: 0 1em;
 }
-.link {
+.header-container .link {
   color: rgba(255, 0, 107, 0.48);
   text-decoration: none;
 }
-.active {
+.header-container .active {
   color: #f3066a;
   text-decoration: none;
 }
-li:hover {
+.header-container li:hover {
   cursor: pointer;
 }
