@@ -17,9 +17,9 @@ const AddTask = ({ method, event }) => {
             <div className={classes["input-container"]}>
               <div className={classes["input-box"]}>
                 <input
-                  id="fromTimeHour"
+                  id="hours"
                   type="number"
-                  name="fromTimeHour"
+                  name="hours"
                   min={0}
                   max={24}
                   required
@@ -27,29 +27,9 @@ const AddTask = ({ method, event }) => {
                 />
                 :
                 <input
-                  id="fromTimeMinutes"
+                  id="minutes"
                   type="number"
-                  name="fromTimeMinutes"
-                  min={0}
-                  max={60}
-                  required
-                  defaultValue={event ? event.value : ""}
-                />
-                -
-                <input
-                  id="toTimeHour"
-                  type="number"
-                  name="toTimeHour"
-                  min={0}
-                  max={24}
-                  required
-                  defaultValue={event ? event.value : ""}
-                />
-                :
-                <input
-                  id="toTimeMinutes"
-                  type="number"
-                  name="toTimeMinutes"
+                  name="minutes"
                   min={0}
                   max={60}
                   required

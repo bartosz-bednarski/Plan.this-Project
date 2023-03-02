@@ -7,17 +7,18 @@ const HomePage = () => {
 export default HomePage;
 export const Action = async ({ request, params }) => {
   const data = await request.formData();
-  const time = `${data.get("fromTimeHour")}:${data.get(
-    "fromTimeMinutes"
-  )} - ${data.get("toTimeHour")}:${data.get("toTimeMinutes")}`;
+  const time = `${data.get("hours")}:${data.get("minutes")}`;
   const currentDay = data.get("currentDay");
   const eventData = {
     time: time,
-    description: data.get("task"),
+    description: data.get("task").replace(/\s/g, ""),
   };
 
   const response = fetch(
-    `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/tasks/${currentDay}.json `,
+    `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/tasks/${currentDay.replace(
+      /\s/g,
+      ""
+    )}.json `,
     {
       method: "POST",
       headers: {

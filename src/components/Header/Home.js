@@ -4,8 +4,9 @@ import AddTask from "../UI/AddTask";
 import CalendarComponent from "../UI/Calendar";
 import Sticker from "../UI/Sticker";
 import cloudyDay from "../../assets/cloudy_day.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLoaderData } from "react-router-dom";
+import { tasksActions } from "../store/task-slice";
 const DUMMY_ARRAY = [
   { id: "task1", time: "07:00 - 08:00", topic: "Training" },
   { id: "task2", time: "08:00 - 09:00", topic: "Breakfast" },
@@ -15,11 +16,43 @@ const DUMMY_ARRAY = [
 ];
 
 const Home = () => {
-  const tasks = useLoaderData();
-  const currentTasks = [tasks];
-  console.log(tasks);
-  console.log(currentTasks);
   const date = useSelector((state) => state.dateReducer);
+  const dateShort = date.dateTotal.replace(/\s/g, "");
+
+  const tasksData = useLoaderData();
+  // const newTasks = Object.entries(tasksData).map((e) => ({ [e[0]]: e[1] }));
+  // const superO = newTasks.filter((item) => {
+  //   return item === "-NPRqlvz0gXnZpRbQUSm";
+  // });
+  const currentDay = Object.keys(tasksData)
+    .filter((key) => key.includes(dateShort))
+    .reduce((obj, key) => {
+      return Object.assign(obj, {
+        ...tasksData[key],
+      });
+    }, {});
+  const newTasks = Object.keys(currentDay).map((key) => {
+    return { id: key, ...currentDay[key] };
+  });
+  // const dispatch = useDispatch();
+  // dispatch(tasksActions.setTasks(newTasks));
+  // const tasks = useSelector((state) => state.tasksReducer.tasks);
+  // console.log(tasks);
+  // const newTasks = Object.values(currentDay);
+  // for (let key of keysArray) {
+  //   Object.assign(newTasks, { ...currentDay[key] });
+  // }
+
+  // = Object.keys(currentDay).reduce((obj, key) => {
+  //   return Object.assign(obj, {
+  //     ...currentDay[key],
+  //   });
+  // }, {});
+  console.log(tasksData);
+  console.log(currentDay);
+  console.log(newTasks);
+
+  // console.log(currentTasks);
   return (
     <div className={classes["hero-container"]}>
       <div className={classes["hero-box"]}>
@@ -29,8 +62,8 @@ const Home = () => {
             Let’s jump into a new day !
           </span>
           <ul className={classes["tasks-list"]}>
-            {DUMMY_ARRAY.map((task) => (
-              <Task time={task.time} topic={task.topic} />
+            {newTasks.map((task) => (
+              <Task id={task.id} time={task.time} topic={task.description} />
             ))}
             <AddTask />
           </ul>
