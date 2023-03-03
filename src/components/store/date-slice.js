@@ -22,7 +22,7 @@ const currentDate = createSlice({
         "December",
       ];
       //   console.log(action.payload);
-      state.dateTotal = action.payload.dateTotal;
+      state.dateTotal = action.payload.dateTotal.replace(/\s/g, "");
       state.month = months[action.payload.month];
       state.day = days[action.payload.day - 1];
       state.date = action.payload.date;

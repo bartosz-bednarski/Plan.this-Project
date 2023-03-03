@@ -1,19 +1,60 @@
 import { useState } from "react";
 import classes from "./Task.module.css";
-import { Form } from "react-router-dom";
-import { useSelector } from "react-redux";
-const AddTask = ({ method, event }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { sendNewTask } from "../store/task-actions";
+import { fetchTaskData } from "../store/task-actions";
+import { tasksActions } from "../store/task-slice";
+import TaskForm from "./TaskForm";
+const AddTask = () => {
+  const date = useSelector((state) => state.dateReducer.dateTotal);
   const [newTask, setNewTask] = useState(false);
-  const currentDay = useSelector((state) => state.dateReducer.dateTotal);
+
+  const dispatch = useDispatch();
   const newTaskHandler = () => {
     setNewTask(!newTask);
   };
+  const [enteredHours, setEnteredHours] = useState("");
+  const [enteredMinutes, setEnteredMinutes] = useState("");
+  const [enteredDescription, setEnteredDescription] = useState("");
 
+  const hoursChangeHandler = (event) => {
+    setEnteredHours(event.target.value);
+  };
+  const minutesChangeHandler = (event) => {
+    setEnteredMinutes(event.target.value);
+  };
+  const descriptionChangeHandler = (event) => {
+    setEnteredDescription(event.target.value);
+  };
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    const dataToSend = {
+      time: `${enteredHours}:${enteredMinutes}`,
+      description: enteredDescription,
+      date: date,
+    };
+    dispatch(sendNewTask(dataToSend));
+    dispatch(tasksActions.addItem());
+    setTimeout(() => {
+      dispatch(fetchTaskData(dispatch));
+    }, 1000);
+  };
   return (
     <>
       {newTask && (
         <li className={`${classes.task} ${classes["add-task-form"]}`}>
-          <Form method="post">
+          <TaskForm
+            onSubmit={submitHandler}
+            hoursOnChange={hoursChangeHandler}
+            hoursValue={enteredHours}
+            minutesOnChange={minutesChangeHandler}
+            minutesValue={enteredMinutes}
+            descriptionOnChange={descriptionChangeHandler}
+            descriptionValue={enteredDescription}
+            type="add"
+          />
+          {/* <form onSubmit={submitHandler}>
             <div className={classes["input-container"]}>
               <div className={classes["input-box"]}>
                 <input
@@ -23,7 +64,8 @@ const AddTask = ({ method, event }) => {
                   min={0}
                   max={24}
                   required
-                  defaultValue={event ? event.value : ""}
+                  onChange={hoursChangeHandler}
+                  value={enteredHours}
                 />
                 :
                 <input
@@ -33,25 +75,21 @@ const AddTask = ({ method, event }) => {
                   min={0}
                   max={60}
                   required
-                  defaultValue={event ? event.value : ""}
+                  onChange={minutesChangeHandler}
+                  value={enteredMinutes}
                 />
                 <input
                   id="task"
                   type="text"
                   name="task"
                   required
-                  defaultValue={event ? event.value : ""}
-                />
-                <input
-                  id="currentDay"
-                  type="hidden"
-                  name="currentDay"
-                  value={currentDay}
+                  onChange={descriptionChangeHandler}
+                  value={enteredDescription}
                 />
               </div>
               <button>Add new task</button>
             </div>
-          </Form>
+          </form> */}
         </li>
       )}
       <li

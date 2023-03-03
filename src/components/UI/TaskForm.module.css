@@ -1,0 +1,44 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  column-gap: 1vw;
+  row-gap: 1vh;
+}
+.input-container-modify {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 1vw;
+}
+.input-container button {
+  padding: 0.3vh 0.4vw;
+  width: auto;
+  font-size: 18px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: grey;
+}
+input[type="number"] {
+  width: 1.2vw;
+  margin: 0;
+  padding: 0 0.1vw;
+
+  -moz-appearance: textfield;
+}
+input[type="text"] {
+  margin-left: 1vw;
+  width: 20vw;
+}

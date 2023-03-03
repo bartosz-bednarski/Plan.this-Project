@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { currentDateActions } from "../store/date-slice";
+import { tasksActions } from "../store/task-slice";
 const CalendarComponent = () => {
   const dispatch = useDispatch();
 
@@ -10,12 +11,13 @@ const CalendarComponent = () => {
 
   dispatch(
     currentDateActions.setCurrentDate({
-      dateTotal: value.toDateString(),
+      dateTotal: value.toDateString().replace(/\s/g, ""),
       month: value.getMonth(),
       day: value.getDay(),
       date: value.getDate(),
     })
   );
+  dispatch(tasksActions.setDate(value.toDateString().replace(/\s/g, "")));
   return (
     <CalendarContainer>
       <Calendar onChange={onChange} value={value} locale="en"></Calendar>

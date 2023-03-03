@@ -7,32 +7,35 @@ import cloudyDay from "../../assets/cloudy_day.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useLoaderData } from "react-router-dom";
 import { tasksActions } from "../store/task-slice";
-const DUMMY_ARRAY = [
-  { id: "task1", time: "07:00 - 08:00", topic: "Training" },
-  { id: "task2", time: "08:00 - 09:00", topic: "Breakfast" },
-  { id: "task3", time: "10:00 - 15:00", topic: "Work" },
-  { id: "task4", time: "17:00 - 18:00", topic: "Shopping" },
-  { id: "task1", time: "20:00 - 21:00", topic: "Running" },
-];
+import { fetchTaskData } from "../store/task-actions";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-  const date = useSelector((state) => state.dateReducer);
-  const dateShort = date.dateTotal.replace(/\s/g, "");
+  const dispatch = useDispatch();
 
-  const tasksData = useLoaderData();
+  const firstLoad = useSelector((state) => state.tasksReducer.firstLoad);
+  const tasks = useSelector((state) => state.tasksReducer.tasks);
+  const date = useSelector((state) => state.dateReducer);
+  const dateTotal = date.dateTotal;
+  console.log(date);
+  const loaderData = useLoaderData();
+  const tasksData = firstLoad ? loaderData : tasks;
+  useEffect(() => {
+    dispatch(fetchTaskData(dispatch));
+  }, [dispatch]);
   // const newTasks = Object.entries(tasksData).map((e) => ({ [e[0]]: e[1] }));
   // const superO = newTasks.filter((item) => {
   //   return item === "-NPRqlvz0gXnZpRbQUSm";
   // });
-  const currentDay = Object.keys(tasksData)
-    .filter((key) => key.includes(dateShort))
+  const activeDayTasks = Object.keys(tasksData)
+    .filter((key) => key.includes(dateTotal))
     .reduce((obj, key) => {
       return Object.assign(obj, {
         ...tasksData[key],
       });
     }, {});
-  const newTasks = Object.keys(currentDay).map((key) => {
-    return { id: key, ...currentDay[key] };
+  const newTasks = Object.keys(activeDayTasks).map((key) => {
+    return { id: key, ...activeDayTasks[key] };
   });
   // const dispatch = useDispatch();
   // dispatch(tasksActions.setTasks(newTasks));
@@ -49,8 +52,9 @@ const Home = () => {
   //   });
   // }, {});
   console.log(tasksData);
-  console.log(currentDay);
+  console.log(activeDayTasks);
   console.log(newTasks);
+  // console.log(firstLoad);
 
   // console.log(currentTasks);
   return (
