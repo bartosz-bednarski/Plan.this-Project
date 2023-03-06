@@ -16,6 +16,11 @@
   width: auto;
   font-size: 18px;
 }
+.input-container-modify button {
+  padding: 0.2vh 0.4vw;
+  width: auto;
+  font-size: 18px;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

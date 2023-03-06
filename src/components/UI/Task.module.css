@@ -12,8 +12,17 @@
   font-size: 20px;
   line-height: 28px;
   display: flex;
+  flex-direction: row;
+  column-gap: 1vw;
   align-items: center;
 }
+
+.task button {
+  padding: 0.1vh 0.4vw;
+  width: auto;
+  font-size: 18px;
+}
+
 .task:hover {
   cursor: pointer;
 }
@@ -24,9 +33,7 @@
 .task-time {
   margin: 0 1vw 0 0;
 }
-.task-done {
-  background-color: rgba(0, 0, 0, 0.25);
-}
+
 .plus {
   height: 3vh;
   width: 2vw;
@@ -38,41 +45,4 @@
 }
 .add-task-form {
   height: 8vh;
-}
-.input-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 1vh;
-}
-.input-container button {
-  padding: 0.3vh 1vw;
-  width: auto;
-  font-size: 20px;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 28px;
-  border: 1px solid black;
-  border-radius: 5px;
-  color: grey;
-}
-input[type="number"] {
-  width: 1.2vw;
-  margin: 0;
-  padding: 0 0.1vw;
-
-  -moz-appearance: textfield;
-}
-input[type="text"] {
-  margin-left: 1vw;
-  width: 25vw;
 }

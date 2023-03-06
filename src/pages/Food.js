@@ -1,5 +1,6 @@
+import Food from "../components/food/Food";
 const FoodPage = () => {
-  return <h1>Food Page</h1>;
+  return <Food />;
 };
 
 export default FoodPage;
