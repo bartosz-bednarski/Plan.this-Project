@@ -2,7 +2,9 @@ import classes from "./Header.module.css";
 import Button from "../../UI/Button";
 import Logo from "../../UI/Logo";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header = () => {
+  const mealsReducer = useSelector((state) => state.mealsReducer);
   return (
     <div className={classes["header-container"]}>
       <Logo />
@@ -56,6 +58,13 @@ const Header = () => {
       </nav>
       <div className={classes.auth}>
         <Button>Logout</Button>
+        <button
+          onClick={() => {
+            console.log("meals reducer after fetch", mealsReducer);
+          }}
+        >
+          Check console.log
+        </button>
       </div>
     </div>
   );

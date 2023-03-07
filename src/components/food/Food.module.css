@@ -1,8 +1,8 @@
 .main-container {
-  height: 74vh;
+  height: 86vh;
   width: 100vw;
   padding: 2vh 0;
-  background-color: white;
+  background: #f5f5f5;
   display: flex;
   flex-direction: column;
 }
@@ -13,9 +13,13 @@
   font-size: 44px;
   line-height: 72px;
   text-align: center;
-  color: #f3066a;
+  width: fit-content;
+  color: #000000;
   height: auto;
-  margin: 0 0 4vh 0;
+  margin: 0 auto 4vh auto;
+}
+.date:hover {
+  cursor: pointer;
 }
 .meals-container {
   height: auto;
@@ -25,68 +29,14 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.meal-box {
-  width: 22vw;
-  height: 70vh;
-  background: rgba(255, 255, 255, 0.77);
-  border: 5px solid rgba(39, 6, 243, 0.17);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.calendar {
+  position: absolute;
+  top: 20vh;
+  left: 35vw;
+  width: auto;
   border-radius: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.meal-type {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 3vw;
-  line-height: 72px;
-  color: #000000;
-}
-.meal-name {
-  font-family: "Habibi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2vw;
-  line-height: 50px;
-
-  color: #f3066a;
-}
-img {
-  background: #ffffff;
-  border: 5px solid #000000;
-  border-radius: 50%;
-  padding: 10px 34px;
-  width: 150px;
-  height: 116px;
-  margin: 1vh 0;
-}
-.meal-ingredients {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.7vw;
-  line-height: 38px;
-
-  color: #000000;
-}
-.meal-box ul {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.2vw;
-  line-height: 28px;
-  text-align: start;
-  color: #000000;
-  width: 90%;
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-  height: 30vh;
-}
-.meal-box ul::-webkit-scrollbar {
-  display: none;
-}
-.meal-item {
-  margin: 1vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  margin: 0;
+  padding: 0;
+  z-index: 1;
 }

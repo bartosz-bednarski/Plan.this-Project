@@ -6,8 +6,14 @@ const meals = createSlice({
   name: "meals",
   initialState: mealsInitialState,
   reducers: {
+    getMeals(state, action) {
+      state.meals = action.payload;
+    },
     addMeal(state, action) {
       state.todayMeals = action.payload;
+    },
+    setDate(state, action) {
+      state.date = action.payload;
     },
   },
 });

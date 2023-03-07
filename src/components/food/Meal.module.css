@@ -1,10 +1,18 @@
 .meal-box {
+  position: relative;
   width: 22vw;
   height: 70vh;
   background: rgba(255, 255, 255, 0.77);
-  border: 5px solid rgba(39, 6, 243, 0.17);
+  border: 5px solid rgba(0, 0, 0, 0.6);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.meal-box form {
+  width: 22vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +23,8 @@
   font-weight: 700;
   font-size: 2.5vw;
   line-height: 72px;
-  color: #000000;
+  color: #f3066a;
+  margin: 1vh 0 0 0;
 }
 .meal-name {
   font-family: "Habibi";
@@ -24,20 +33,53 @@
   font-size: 1.8vw;
   line-height: 50px;
 
-  color: #f3066a;
+  color: #000000;
 }
-.meal-box img {
-  background: #ffffff;
-  border: 5px solid #000000;
-  border-radius: 50%;
-  padding: 2vh 1vw;
-  width: 5vw;
-  height: 7vh;
+.image-box {
+  position: relative;
+  width: 8vw;
+  height: 12vh;
   margin: 1vh 0;
+  border-radius: 50%;
+  margin: 2vh 0;
+  border: 4px solid #f3066a;
+  background-color: #f5f5f5;
+}
+.image-text {
+  position: absolute;
+  left: 1vw;
+  top: 2.5vh;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1vw;
+  visibility: hidden;
+  color: black;
+}
+.meal-img {
+  background: transparent;
+
+  border-radius: 50%;
+  width: 8vw;
+  height: 12vh;
+}
+.image-box:hover {
+  border: 4px solid #f3066a;
+  cursor: pointer;
+}
+.image-box:hover .meal-img {
+  visibility: hidden;
+
+  opacity: 1;
+}
+.image-box:hover .image-text {
+  visibility: visible;
+
+  opacity: 1;
 }
 .meal-box svg {
   background: #ffffff;
-  border: 5px solid #000000;
+  border: 3px solid #f3066a;
   border-radius: 50%;
   padding: 2vh 1vw;
   width: 5vw;
@@ -55,7 +97,8 @@
   color: #000000;
 }
 
-.meal-box ul {
+.meal-box ul,
+.directions {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -71,10 +114,49 @@
 .meal-box ul::-webkit-scrollbar {
   display: none;
 }
+.directions::-webkit-scrollbar {
+  display: none;
+}
+.directions {
+  text-align: center;
+  font-size: 0.8vw;
+}
+.add-meal-btn:hover {
+  cursor: pointer;
+}
+/* .directions {
+  width: 90%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1vw;
+  line-height: 28px;
+  text-align: start;
+  color: #000000;
+} */
 .meal-item {
   margin: 1vh;
 }
-textarea {
+.meal-box textarea {
   height: 10vh;
   margin: 1vh 0;
+  width: 90%;
+}
+.meal-box input {
+  width: 90%;
+  margin: 0;
+}
+.add-cancel-btn {
+  margin: 0 0 2vh 0;
+}
+.update-btn {
+  position: absolute;
+  bottom: 0;
+  height: 3vh;
+  font-size: 2vh;
+  line-height: normal;
+  padding: 0.5vh 3vw;
+  border-radius: 0px;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
 }
