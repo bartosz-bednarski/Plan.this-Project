@@ -6,6 +6,7 @@ import HomePage, { loader as tasksLoader } from "./pages/Home";
 import RootLayout from "./pages/Root";
 import ShoppingPage from "./pages/Shopping";
 import SportPage from "./pages/Sport";
+import MenuPage from "./pages/Menu";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,7 +19,14 @@ const router = createBrowserRouter([
         loader: tasksLoader,
       },
       { path: "sport", element: <SportPage /> },
-      { path: "food", element: <FoodPage /> },
+      {
+        path: "food",
+        element: <FoodPage />,
+      },
+      {
+        path: "/menu",
+        element: <MenuPage />,
+      },
       { path: "shopping", element: <ShoppingPage /> },
     ],
   },

@@ -6,6 +6,7 @@ import CalendarComponent from "../UI/Calendar";
 import { useDispatch, useSelector } from "react-redux";
 import { mealsActions } from "../store/meals-slice";
 import { fetchMealsData } from "../store/meal-actions";
+import { NavLink } from "react-router-dom";
 const Food = (props) => {
   const dispatch = useDispatch();
   const date = useSelector((state) => state.dateReducer);
@@ -68,6 +69,7 @@ const Food = (props) => {
           <AddMeal type={"Supper"} />
         )}
       </div>
+      <NavLink to="/menu">Menu</NavLink>
     </div>
   );
 };

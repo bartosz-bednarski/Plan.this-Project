@@ -160,3 +160,26 @@
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
 }
+
+.meal-chose-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.meal-chose-box button {
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5vh 3vw;
+  color: black;
+  border: 2px solid #f3066a;
+  border-radius: 50%;
+  margin-top: 5vh;
+}
+.meal-chose-box button img {
+  height: 10vh;
+}
