@@ -1,7 +1,7 @@
 import classes from "./Meal.module.css";
-import breakfast from "../../assets/breakfast.png";
-import dinner from "../../assets/dinner.png";
-import supper from "../../assets/supper.png";
+import breakfast from "../../../assets/breakfast.png";
+import dinner from "../../../assets/dinner.png";
+import supper from "../../../assets/supper.png";
 import { useState } from "react";
 import UpdateMeal from "./UpdateMeal";
 const Meal = (props) => {

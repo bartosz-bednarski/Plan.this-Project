@@ -1,7 +1,7 @@
 import classes from "./Food.module.css";
-import Meal from "./Meal";
+import Meal from "./mealItem/Meal";
 import { useEffect, useState } from "react";
-import AddMeal from "./AddMeal";
+import AddMeal from "./mealItem/AddMeal";
 import CalendarComponent from "../UI/Calendar";
 import { useDispatch, useSelector } from "react-redux";
 import { mealsActions } from "../store/meals-slice";

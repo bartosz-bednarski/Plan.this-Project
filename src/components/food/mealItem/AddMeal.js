@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classes from "./Meal.module.css";
-import { fetchMealsData, sendNewMeal } from "../store/meal-actions";
+import { fetchMealsData, sendNewMeal } from "../../store/meal-actions";
 import { useDispatch, useSelector } from "react-redux";
 import MealForm from "./MealForm";
 const AddMeal = (props) => {
