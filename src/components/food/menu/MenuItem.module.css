@@ -1,0 +1,81 @@
+.meal-item {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 3px solid #eb3677;
+  border-radius: 20px;
+  width: 22vw;
+  height: auto;
+  margin-bottom: 2vh;
+  padding: 0vh 1vw;
+  align-items: center;
+  font-family: "Roboto";
+  font-style: normal;
+
+  font-size: 1vw;
+  line-height: 38px;
+
+  color: #000000;
+}
+.meal-item-selected {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+.meal-item-selected::-webkit-scrollbar {
+  display: none;
+}
+.meal-item-header {
+  display: flex;
+  width: 22vw;
+  height: 5vh;
+  font-weight: 500;
+  align-items: center;
+}
+
+.meal-item:hover {
+  cursor: pointer;
+}
+.meal-details {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 28px;
+  text-align: start;
+  width: 90%;
+  height: 40vh;
+}
+.meal-details-extra {
+  height: 25vh;
+}
+.meal-details-header {
+  margin-top: 1vh;
+  padding: 1vh 0;
+  border-top: 3px solid #eb3677;
+  font-weight: 500;
+  font-size: 1vw;
+  line-height: 38px;
+  text-align: center;
+  color: #000000;
+}
+.meal-item-header img {
+  height: 5vh;
+  width: 3vw;
+  margin-right: 3vw;
+}
+.btn-box {
+  border-top: 3px solid #eb3677;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3vh;
+  padding: 2vh 0;
+}
+.btn-box button {
+  padding: 0.4vh 1.5vw;
+  font-size: 1vw;
+}

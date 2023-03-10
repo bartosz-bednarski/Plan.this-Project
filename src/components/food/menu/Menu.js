@@ -8,13 +8,25 @@ import Modal from "../../UI/Modal";
 import MenuForm from "./MenuForm";
 import { menuActions } from "../../store/menu-slice";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchMenuData } from "../../store/menu-actions";
+import { useState } from "react";
+import MenuItem from "./MenuItem";
 const Menu = () => {
-  const showModal = useSelector((state) => state.menuReducer.showModal);
   const dispatch = useDispatch();
 
-  const addMealHandler = () => {
-    dispatch(menuActions.showModal("add"));
-  };
+  const menuIsUpdated = useSelector((state) => state.menuReducer.menuIsUpdated);
+  useEffect(() => {
+    dispatch(fetchMenuData());
+  }, [menuIsUpdated]);
+  const breakfast = useSelector((state) => state.menuReducer.menuBreakfast);
+  const dinner = useSelector((state) => state.menuReducer.menuDinner);
+  const supper = useSelector((state) => state.menuReducer.menuSupper);
+  const extra = useSelector((state) => state.menuReducer.menuExtra);
+
+  console.log(breakfast);
+  const showModal = useSelector((state) => state.menuReducer.showModal);
+
   return (
     <>
       {showModal === true && (
@@ -33,26 +45,31 @@ const Menu = () => {
             <div className={classes["breakfast-container"]}>
               <span className={classes["meal-type"]}>Breakfast</span>
               <ul className={classes["meal-list"]}>
-                <li className={classes["meal-item"]}>
-                  <img src={breakfastImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={breakfastImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={breakfastImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={breakfastImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={breakfastImg} />
-                  Eggs with Ham
-                </li>
+                {breakfast.map((item) => (
+                  <MenuItem
+                    key={item.id}
+                    id={item.id}
+                    img={breakfastImg}
+                    data={item}
+                  />
+                  // <li
+                  //   key={item.id}
+                  //   id={item.id}
+                  //   onClick={detailsHandler}
+                  //   className={classes["meal-item"]}
+                  // >
+                  //   <span className={classes["meal-item-header"]}>
+                  //     <img src={breakfastImg} />
+                  //     {item.name}
+                  //   </span>
+
+                  //   {showDetails && (
+                  //     <div className={classes["meal-details"]}>
+                  //       <h2>Ingredients</h2>
+                  //     </div>
+                  //   )}
+                  // </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -60,37 +77,19 @@ const Menu = () => {
             <div className={classes["dinner-container"]}>
               <span className={classes["meal-type"]}>Dinner</span>
               <ul className={classes["meal-list"]}>
-                <li className={classes["meal-item"]}>
-                  <img src={dinnerImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={dinnerImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={dinnerImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={dinnerImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={dinnerImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={dinnerImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={dinnerImg} />
-                  Eggs with Ham
-                </li>
+                {dinner.map((item) => (
+                  <MenuItem
+                    key={item.id}
+                    id={item.id}
+                    img={dinnerImg}
+                    data={item}
+                  />
+                ))}
               </ul>
               <button
-                onClick={addMealHandler}
+                onClick={() => {
+                  dispatch(menuActions.showModal("Add"));
+                }}
                 className={classes["add-meal-btn"]}
               >
                 Add meal
@@ -101,35 +100,27 @@ const Menu = () => {
             <div className={classes["supper-container"]}>
               <span className={classes["meal-type"]}>Supper</span>
               <ul className={classes["meal-list"]}>
-                <li className={classes["meal-item"]}>
-                  <img src={supperImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={supperImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={supperImg} />
-                  Eggs with Ham
-                </li>
+                {supper.map((item) => (
+                  <MenuItem
+                    key={item.id}
+                    id={item.id}
+                    img={supperImg}
+                    data={item}
+                  />
+                ))}
               </ul>
             </div>
             <div className={classes["extra-container"]}>
               <span className={classes["meal-type"]}>Extra</span>
               <ul className={classes["meal-list"]}>
-                <li className={classes["meal-item"]}>
-                  <img src={extraImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={extraImg} />
-                  Eggs with Ham
-                </li>
-                <li className={classes["meal-item"]}>
-                  <img src={extraImg} />
-                  Eggs with Ham
-                </li>
+                {extra.map((item) => (
+                  <MenuItem
+                    key={item.id}
+                    id={item.id}
+                    img={extraImg}
+                    data={item}
+                  />
+                ))}
               </ul>
             </div>
           </div>

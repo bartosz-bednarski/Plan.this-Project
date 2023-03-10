@@ -1,13 +1,17 @@
 import { useState } from "react";
 import classes from "./MenuForm.module.css";
-import { sendNewMenuMeal } from "../../store/menu-actions";
+import { sendNewMenuMeal, updateMenuMeal } from "../../store/menu-actions";
 import { useDispatch } from "react-redux";
+import { menuActions } from "../../store/menu-slice";
+import { useSelector } from "react-redux";
 const MenuForm = (props) => {
   const dispatch = useDispatch();
-  const [type, setType] = useState("");
-  const [name, setName] = useState("");
-  const [ingredients, setIngredients] = useState("");
-  const [directions, setDirections] = useState("");
+  const actionType = useSelector((state) => state.menuReducer.actionType);
+  const mealToUpdate = useSelector((state) => state.menuReducer.mealToUpdate);
+  const [type, setType] = useState(mealToUpdate.type);
+  const [name, setName] = useState(mealToUpdate.name);
+  const [ingredients, setIngredients] = useState(mealToUpdate.ingredients);
+  const [directions, setDirections] = useState(mealToUpdate.directions);
   const [typeWarning, setTypeWarning] = useState("type-input");
   const typeHandler = (event) => {
     setType(event.target.value);
@@ -23,21 +27,40 @@ const MenuForm = (props) => {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    if (type !== ("Breakfast" || "Dinner" || "Supper")) {
+    if (
+      type !== "Breakfast" &&
+      type !== "Dinner" &&
+      type !== "Supper" &&
+      type !== "Extra"
+    ) {
       setTypeWarning("type-input-warning");
       console.log("error");
       return;
     }
     setTypeWarning("type-input");
-    dispatch(
-      sendNewMenuMeal({
-        type: type,
-        name: name,
-        ingredients: ingredients,
-        directions: directions,
-      })
-    );
-    props.modalHandler();
+    if (actionType === "Add") {
+      dispatch(
+        sendNewMenuMeal({
+          type: type,
+          name: name,
+          ingredients: ingredients,
+          directions: directions,
+        })
+      );
+    }
+    if (actionType === "Update") {
+      dispatch(
+        updateMenuMeal({
+          id: mealToUpdate.id,
+          type: type,
+          name: name,
+          ingredients: ingredients,
+          directions: directions,
+        })
+      );
+    }
+
+    dispatch(menuActions.hideModal());
 
     console.log(type, name, ingredients, directions);
   };
@@ -58,6 +81,7 @@ const MenuForm = (props) => {
           <option value="Breakfast" />
           <option value="Dinner" />
           <option value="Supper" />
+          <option value="Extra" />
         </datalist>
 
         <label htmlFor="name">Name</label>
@@ -84,7 +108,7 @@ const MenuForm = (props) => {
           onChange={directionsHandler}
           required
         />
-        <button>Add meal</button>
+        <button>{actionType} meal</button>
       </form>
     </div>
   );
