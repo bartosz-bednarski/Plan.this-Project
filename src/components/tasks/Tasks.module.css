@@ -82,3 +82,26 @@
   line-height: 50px;
   color: #f3066a;
 }
+.task {
+  width: 35.75vw;
+  height: 2vh;
+  margin: 1vh 0;
+  padding: 1vh 1vw;
+  background: #ffffff;
+  border: 2px solid #2706f3;
+  border-radius: 10px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1vw;
+  align-items: center;
+}
+.task img {
+  height: 3vh;
+  width: 2vw;
+  margin: 0 auto;
+}

@@ -28,3 +28,6 @@
 .header-container li:hover {
   cursor: pointer;
 }
+.calendar {
+  display: none;
+}

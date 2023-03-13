@@ -1,17 +1,17 @@
 import { tasksActions } from "./task-slice";
 
-export const fetchTaskData = () => {
+export const fetchTaskData = (date) => {
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        "https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/tasks.json"
+        `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/tasks/${date}.json`
       );
       const data = await response.json();
       return data;
     };
     try {
       const tasksData = await fetchData();
-      dispatch(tasksActions.setTasks(tasksData));
+      dispatch(tasksActions.getTodayTasks(tasksData));
     } catch (error) {
       console.log(error);
     }
@@ -63,6 +63,7 @@ export const updateTask = (task) => {
     };
     try {
       await sendRequest();
+      dispatch(tasksActions.setTasksAreUpdated());
     } catch (error) {
       console.log(error);
     }
@@ -70,7 +71,7 @@ export const updateTask = (task) => {
 };
 
 export const deleteTask = (task) => {
-  return async () => {
+  return async (dispatch) => {
     const sendRequest = async () => {
       const response = await fetch(
         `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/tasks/${task.date}/${task.id}.json`,

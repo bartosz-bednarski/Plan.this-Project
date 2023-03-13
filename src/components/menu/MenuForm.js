@@ -1,8 +1,8 @@
 import { useState } from "react";
 import classes from "./MenuForm.module.css";
-import { sendNewMenuMeal, updateMenuMeal } from "../../store/menu-actions";
+import { sendNewMenuMeal, updateMenuMeal } from "../store/menu-actions";
 import { useDispatch } from "react-redux";
-import { menuActions } from "../../store/menu-slice";
+import { menuActions } from "../store/menu-slice";
 import { useSelector } from "react-redux";
 const MenuForm = (props) => {
   const dispatch = useDispatch();

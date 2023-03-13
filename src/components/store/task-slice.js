@@ -1,13 +1,37 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const tasksInitialState = { tasks: [], date: " ", firstLoad: true };
+const tasksInitialState = {
+  todayTasks: [],
+  date: "",
+  formStatus: "hidden",
+  taskToUpdate: {},
+  tasksAreUpdated: false,
+};
 const tasks = createSlice({
   name: "tasks",
   initialState: tasksInitialState,
   reducers: {
-    setTasks(state, action) {
-      state.tasks = action.payload;
+    getTodayTasks(state, action) {
+      if (action.payload !== null) {
+        state.todayTasks = Object.keys(action.payload).map((key) => {
+          return { id: key, ...action.payload[key] };
+        });
+      }
     },
+    // updateTask(state,action){
+    updateTask(state, action) {
+      state.taskToUpdate = action.payload;
+    },
+    setTasksAreUpdated(state, action) {
+      state.tasksAreUpdated = !state.tasksAreUpdated;
+    },
+    setFormIsShown(state, action) {
+      state.formStatus = "displayed";
+    },
+    setFormIsHidden(state) {
+      state.formStatus = "hidden";
+    },
+    // }
     addItem(state) {
       state.firstLoad = false;
     },
@@ -16,7 +40,7 @@ const tasks = createSlice({
     },
     removeTask(state, action) {
       const id = action.payload;
-      state.tasks = state.tasks.filter((item) => item.id !== id);
+      state.todayTasks = state.todayTasks.filter((item) => item.id !== id);
     },
   },
 });

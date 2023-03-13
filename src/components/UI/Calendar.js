@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { currentDateActions } from "../store/date-slice";
 import { tasksActions } from "../store/task-slice";
+import { foodActions } from "../store/food-slice";
 const CalendarComponent = () => {
   const dispatch = useDispatch();
 
@@ -18,6 +19,8 @@ const CalendarComponent = () => {
     })
   );
   dispatch(tasksActions.setDate(value.toDateString().replace(/\s/g, "")));
+  dispatch(foodActions.setDate(value.toDateString().replace(/\s/g, "")));
+
   return (
     <CalendarContainer>
       <Calendar onChange={onChange} value={value} locale="en"></Calendar>

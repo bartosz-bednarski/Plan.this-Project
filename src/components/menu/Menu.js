@@ -1,15 +1,15 @@
 import classes from "./Menu.module.css";
-import menuBtn from "../../../assets/menu-btn.svg";
-import breakfastImg from "../../../assets/breakfast.png";
-import dinnerImg from "../../../assets/dinner.png";
-import supperImg from "../../../assets/supper.png";
-import extraImg from "../../../assets/extra.svg";
-import Modal from "../../UI/Modal";
+import menuBtn from "../../assets/menu-btn.svg";
+import breakfastImg from "../../assets/breakfast.png";
+import dinnerImg from "../../assets/dinner.png";
+import supperImg from "../../assets/supper.png";
+import extraImg from "../../assets/extra.svg";
+import Modal from "../UI/Modal";
 import MenuForm from "./MenuForm";
-import { menuActions } from "../../store/menu-slice";
+import { menuActions } from "../store/menu-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchMenuData } from "../../store/menu-actions";
+import { fetchMenuData } from "../store/menu-actions";
 import { useState } from "react";
 import MenuItem from "./MenuItem";
 const Menu = () => {
@@ -52,23 +52,6 @@ const Menu = () => {
                     img={breakfastImg}
                     data={item}
                   />
-                  // <li
-                  //   key={item.id}
-                  //   id={item.id}
-                  //   onClick={detailsHandler}
-                  //   className={classes["meal-item"]}
-                  // >
-                  //   <span className={classes["meal-item-header"]}>
-                  //     <img src={breakfastImg} />
-                  //     {item.name}
-                  //   </span>
-
-                  //   {showDetails && (
-                  //     <div className={classes["meal-details"]}>
-                  //       <h2>Ingredients</h2>
-                  //     </div>
-                  //   )}
-                  // </li>
                 ))}
               </ul>
             </div>

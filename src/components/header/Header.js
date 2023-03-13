@@ -1,8 +1,9 @@
 import classes from "./Header.module.css";
-import Button from "../../UI/Button";
-import Logo from "../../UI/Logo";
+import Button from "../UI/Button";
+import Logo from "../UI/Logo";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import CalendarComponent from "../UI/Calendar";
 const Header = () => {
   const mealsReducer = useSelector((state) => state.mealsReducer);
   return (
@@ -65,6 +66,9 @@ const Header = () => {
         >
           Check console.log
         </button>
+        <div className={classes.calendar}>
+          <CalendarComponent />
+        </div>
       </div>
     </div>
   );

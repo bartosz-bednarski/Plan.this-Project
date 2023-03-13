@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import ErrorPage from "./pages/Error";
 import FoodPage from "./pages/Food";
-import HomePage, { loader as tasksLoader } from "./pages/Home";
+import TasksPage, { loader as tasksLoader } from "./pages/Tasks";
 import RootLayout from "./pages/Root";
 import ShoppingPage from "./pages/Shopping";
 import SportPage from "./pages/Sport";
@@ -15,8 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
-        loader: tasksLoader,
+        element: <TasksPage />,
       },
       { path: "sport", element: <SportPage /> },
       {
