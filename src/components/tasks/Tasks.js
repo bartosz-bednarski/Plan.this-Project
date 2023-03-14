@@ -1,6 +1,5 @@
 import classes from "./Tasks.module.css";
-import Task from "../UI/Task";
-import AddTask from "../UI/AddTask";
+import TasksItem from "./TasksItem";
 import CalendarComponent from "../UI/Calendar";
 import Sticker from "../UI/Sticker";
 import cloudyDay from "../../assets/cloudy_day.png";
@@ -10,11 +9,13 @@ import { tasksActions } from "../store/task-slice";
 import { fetchTaskData } from "../store/task-actions";
 import { useEffect, useState } from "react";
 import plusBtn from "../../assets/plus-btn.svg";
+import TaskForm from "./TasksForm";
 
 const Tasks = () => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.tasksReducer.todayTasks);
   const date = useSelector((state) => state.tasksReducer.date);
+  const dateReducer = useSelector((state) => state.dateReducer);
   const tasksAreUpdated = useSelector(
     (state) => state.tasksReducer.tasksAreUpdated
   );
@@ -40,25 +41,47 @@ const Tasks = () => {
           </span>
           <ul className={classes["tasks-list"]}>
             {tasks.map((task) => (
-              <Task
+              <TasksItem
                 key={task.id}
                 id={task.id}
+                description={task.description}
                 time={task.time}
-                topic={task.description}
+                type="Update"
               />
             ))}
-            <li className={`${classes.task} ${classes["add-task"]}`}>
-              <img src={plusBtn} />
-            </li>
+            <TasksItem type="Add new task" time={""} description={""} />
+            {/* <li className={`${classes.task} ${classes["add-task"]}`}>
+              {!showNewTaskForm && (
+                <span
+                  className={classes["plus-btn"]}
+                  onClick={showNewTaskHandler}
+                >
+                  <img src={plusBtn} />
+                </span>
+              )}
+              {showNewTaskForm && (
+                <>
+                  <Task
+                    time={""}
+                    description={""}
+                    hideNewTaskHandler={hideNewTaskHandler}
+                    type="Add new task"
+                  />
+                </>
+              )}
+            </li> */}
           </ul>
         </div>
         <div className={classes["hero-right"]}>
-          <CalendarComponent />
+          <div className={classes["calendar-box"]}>
+            <CalendarComponent />
+          </div>
+
           <div className={classes["stickers-box"]}>
             <Sticker>
-              <span className={classes["day-name"]}>{date.day}</span>
-              <span className={classes["day-number"]}>{date.date}</span>
-              <span className={classes["month-name"]}>{date.month}</span>
+              <span className={classes["day-name"]}>{dateReducer.day}</span>
+              <span className={classes["day-number"]}>{dateReducer.date}</span>
+              <span className={classes["month-name"]}>{dateReducer.month}</span>
             </Sticker>
             <Sticker>
               <img src={cloudyDay} />

@@ -3,8 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const tasksInitialState = {
   todayTasks: [],
   date: "",
-  formStatus: "hidden",
-  taskToUpdate: {},
   tasksAreUpdated: false,
 };
 const tasks = createSlice({
@@ -16,24 +14,13 @@ const tasks = createSlice({
         state.todayTasks = Object.keys(action.payload).map((key) => {
           return { id: key, ...action.payload[key] };
         });
+      } else {
+        state.todayTasks = [];
       }
     },
     // updateTask(state,action){
-    updateTask(state, action) {
-      state.taskToUpdate = action.payload;
-    },
     setTasksAreUpdated(state, action) {
       state.tasksAreUpdated = !state.tasksAreUpdated;
-    },
-    setFormIsShown(state, action) {
-      state.formStatus = "displayed";
-    },
-    setFormIsHidden(state) {
-      state.formStatus = "hidden";
-    },
-    // }
-    addItem(state) {
-      state.firstLoad = false;
     },
     setDate(state, action) {
       state.date = action.payload;

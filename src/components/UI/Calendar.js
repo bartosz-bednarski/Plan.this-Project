@@ -33,12 +33,12 @@ export default CalendarComponent;
 const CalendarContainer = styled.div`
   width: 30vw;
   height: 45vh;
-  background-color: red;
+
   padding: 1vh 1vw;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.5);
-  border: 3px solid #f3066a;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  // background: rgba(255, 255, 255, 0.5);
+  // border: 3px solid #f3066a;
+  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
   text-align: center;
   font-family: "Roboto";

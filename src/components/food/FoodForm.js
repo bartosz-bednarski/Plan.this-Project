@@ -1,4 +1,4 @@
-import classes from "./Meal.module.css";
+import classes from "./FoodForm.module.css";
 import { useState } from "react";
 import menuBtn from "../../assets/menu-btn.svg";
 import keyboardBtn from "../../assets/keyboard-btn.svg";

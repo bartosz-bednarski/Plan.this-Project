@@ -10,13 +10,6 @@
   flex-direction: column;
   align-items: center;
 }
-.meal-box form {
-  width: 22vw;
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .meal-type {
   font-family: "Poppins";
   font-style: normal;
@@ -32,6 +25,15 @@
   font-weight: 400;
   font-size: 1.8vw;
   line-height: 50px;
+
+  color: #000000;
+}
+.meal-ingredients {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5vw;
+  line-height: 38px;
 
   color: #000000;
 }
@@ -87,16 +89,6 @@
   margin: 1vh 0;
 }
 
-.meal-ingredients {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.5vw;
-  line-height: 38px;
-
-  color: #000000;
-}
-
 .meal-box ul,
 .directions {
   font-family: "Roboto";
@@ -124,27 +116,8 @@
 .add-meal-btn:hover {
   cursor: pointer;
 }
-/* .directions {
-  width: 90%;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.1vw;
-  line-height: 28px;
-  text-align: start;
-  color: #000000;
-} */
 .meal-item {
   margin: 1vh;
-}
-.meal-box textarea {
-  height: 10vh;
-  margin: 1vh 0;
-  width: 90%;
-}
-.meal-box input {
-  width: 90%;
-  margin: 0;
 }
 .add-cancel-btn {
   margin: 0 0 2vh 0;
@@ -159,27 +132,4 @@
   border-radius: 0px;
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
-}
-
-.meal-chose-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.meal-chose-box button {
-  background-color: transparent;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5vh 3vw;
-  color: black;
-  border: 2px solid #f3066a;
-  border-radius: 50%;
-  margin-top: 5vh;
-}
-.meal-chose-box button img {
-  height: 10vh;
 }

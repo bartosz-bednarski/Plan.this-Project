@@ -1,10 +1,11 @@
 .task {
-  width: 35.75vw;
-  height: 2vh;
+  position: relative;
+  width: 24.75vw;
+  height: auto;
   margin: 1vh 0;
   padding: 1vh 1vw;
   background: #ffffff;
-  border: 2px solid #2706f3;
+  border: 2px solid black;
   border-radius: 10px;
   font-family: "Roboto";
   font-style: normal;
@@ -16,33 +17,46 @@
   column-gap: 1vw;
   align-items: center;
 }
+.tick {
+  position: absolute;
+  left: -3vw;
+}
 
 .task button {
   padding: 0.1vh 0.4vw;
   width: auto;
   font-size: 18px;
 }
+.task span {
+  width: 100%;
+}
 
 .task:hover {
   cursor: pointer;
 }
 .add-task:hover {
-  stroke: white;
   background-color: #f3066a;
 }
 .task-time {
   margin: 0 1vw 0 0;
 }
 
-.plus {
+.task img {
   height: 3vh;
   width: 2vw;
   margin: 0 auto;
 }
-
-.add-task {
-  text-align: center;
-}
 .add-task-form {
   height: 8vh;
+}
+.add-task {
+  height: auto;
+  background-color: #f3066a;
+}
+.plus-btn {
+  width: 100%;
+  text-align: center;
+}
+.plus-btn:hover {
+  cursor: pointer;
 }

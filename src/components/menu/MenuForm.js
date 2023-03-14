@@ -4,7 +4,7 @@ import { sendNewMenuMeal, updateMenuMeal } from "../store/menu-actions";
 import { useDispatch } from "react-redux";
 import { menuActions } from "../store/menu-slice";
 import { useSelector } from "react-redux";
-const MenuForm = (props) => {
+const MenuForm = () => {
   const dispatch = useDispatch();
   const actionType = useSelector((state) => state.menuReducer.actionType);
   const mealToUpdate = useSelector((state) => state.menuReducer.mealToUpdate);

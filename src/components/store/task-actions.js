@@ -19,7 +19,7 @@ export const fetchTaskData = (date) => {
 };
 
 export const sendNewTask = (newTask) => {
-  return async () => {
+  return async (dispatch) => {
     const sendRequest = async () => {
       const response = await fetch(
         `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/tasks/${newTask.date}.json `,
@@ -37,6 +37,7 @@ export const sendNewTask = (newTask) => {
     };
     try {
       await sendRequest();
+      dispatch(tasksActions.setTasksAreUpdated());
     } catch (error) {
       console.log(error);
     }

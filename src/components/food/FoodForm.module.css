@@ -1,0 +1,48 @@
+form {
+  width: 22vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.meal-chose-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.meal-chose-box button {
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5vh 3vw;
+  color: black;
+  border: 2px solid #f3066a;
+  border-radius: 50%;
+  margin-top: 5vh;
+}
+.meal-chose-box button img {
+  height: 10vh;
+}
+textarea {
+  height: 10vh;
+  margin: 1vh 0;
+  width: 90%;
+}
+input {
+  width: 90%;
+  margin: 0;
+}
+
+.meal-ingredients {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5vw;
+  line-height: 38px;
+
+  color: #000000;
+}

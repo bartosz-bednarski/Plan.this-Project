@@ -10,7 +10,6 @@ import { menuActions } from "../store/menu-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchMenuData } from "../store/menu-actions";
-import { useState } from "react";
 import MenuItem from "./MenuItem";
 const Menu = () => {
   const dispatch = useDispatch();
