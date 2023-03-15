@@ -6,18 +6,27 @@ import { tasksActions } from "../store/task-slice";
 import plusBtn from "../../assets/plus-btn.svg";
 import tickActiveBtn from "../../assets/tickActive.svg";
 import tickDisabledBtn from "../../assets/tickDisabled.svg";
+import { deleteTask } from "../store/task-actions";
 const TasksItem = (props) => {
   const dispatch = useDispatch();
+  const date = useSelector((state) => state.tasksReducer.date);
   const [hours, setHours] = useState(props.time.slice(0, 2));
   const [minutes, setMinutes] = useState(props.time.slice(3));
   const [description, setDescription] = useState(props.description);
   const [showForm, setShowForm] = useState(false);
   const [tickActive, setTickActive] = useState(false);
+  const [tickClicked, setTickClicked] = useState(false);
   const tickActiveHandler = () => {
     setTickActive(true);
   };
   const tickDisabledHandler = () => {
     setTickActive(false);
+  };
+  const tickClickedHandler = () => {
+    setTickClicked(true);
+  };
+  const tickClearHandler = () => {
+    setTickClicked(false);
   };
   const hoursHandler = (event) => {
     setHours(event.target.value);
@@ -35,7 +44,12 @@ const TasksItem = (props) => {
     setDescription(event.target.value);
   };
   console.log(hours, minutes);
-
+  const removeTask = () => {
+    tickClickedHandler();
+    setTimeout(() => {
+      dispatch(deleteTask({ date: date, id: props.id }));
+    }, 500);
+  };
   // const [taskIsEditing, setTaskIsEditing] = useState(false);
   // const [enteredHours, setEnteredHours] = useState(props.time.slice(0, 2));
   // const [enteredMinutes, setEnteredMinutes] = useState(props.time.slice(3));
@@ -87,14 +101,23 @@ const TasksItem = (props) => {
   return (
     <>
       {props.type === "Update" && (
-        <li className={classes.task}>
+        <li
+          className={`${classes.task} ${tickClicked && classes["task-delete"]}`}
+        >
           {!showForm && (
             <>
               <img
                 className={classes.tick}
-                src={tickActive ? tickActiveBtn : tickDisabledBtn}
+                src={
+                  tickClicked
+                    ? tickActiveBtn
+                    : tickActive
+                    ? tickActiveBtn
+                    : tickDisabledBtn
+                }
                 onMouseOver={tickActiveHandler}
                 onMouseOut={tickDisabledHandler}
+                onClick={removeTask}
               />
               <span onClick={showFormHandler}>
                 <span className={classes["task-time"]}>{props.time}</span>

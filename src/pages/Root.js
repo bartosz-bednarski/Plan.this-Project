@@ -3,9 +3,11 @@ import Header from "../components/header/Header";
 import classes from "./Root.module.css";
 const RootLayout = () => {
   return (
-    <div className={classes.root}>
+    <div className={classes["root-container"]}>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };

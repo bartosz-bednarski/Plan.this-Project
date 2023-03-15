@@ -8,66 +8,68 @@ const Header = () => {
   const mealsReducer = useSelector((state) => state.mealsReducer);
   return (
     <div className={classes["header-container"]}>
-      <Logo />
-      <nav>
-        <ul>
-          <li>
-            <NavLink
-              is
-              className={({ isActive }) =>
-                isActive ? classes.active : classes.link
-              }
-              to="/"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              is
-              className={({ isActive }) =>
-                isActive ? classes.active : classes.link
-              }
-              to="/sport"
-            >
-              Sport
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              is
-              className={({ isActive }) =>
-                isActive ? classes.active : classes.link
-              }
-              to="/food"
-            >
-              Food
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              is
-              className={({ isActive }) =>
-                isActive ? classes.active : classes.link
-              }
-              to="/shopping"
-            >
-              Shopping
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <div className={classes.auth}>
-        <Button>Logout</Button>
-        <button
-          onClick={() => {
-            console.log("meals reducer after fetch", mealsReducer);
-          }}
-        >
-          Check console.log
-        </button>
-        <div className={classes.calendar}>
-          <CalendarComponent />
+      <div className={classes["header-box"]}>
+        <Logo />
+        <nav>
+          <ul>
+            <li>
+              <NavLink
+                is
+                className={({ isActive }) =>
+                  isActive ? classes.active : classes.link
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                is
+                className={({ isActive }) =>
+                  isActive ? classes.active : classes.link
+                }
+                to="/sport"
+              >
+                Sport
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                is
+                className={({ isActive }) =>
+                  isActive ? classes.active : classes.link
+                }
+                to="/food"
+              >
+                Food
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                is
+                className={({ isActive }) =>
+                  isActive ? classes.active : classes.link
+                }
+                to="/shopping"
+              >
+                Shopping
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <div className={classes.auth}>
+          <Button>Logout</Button>
+          <button
+            onClick={() => {
+              console.log("meals reducer after fetch", mealsReducer);
+            }}
+          >
+            Check console.log
+          </button>
+          <div className={classes.calendar}>
+            <CalendarComponent />
+          </div>
         </div>
       </div>
     </div>

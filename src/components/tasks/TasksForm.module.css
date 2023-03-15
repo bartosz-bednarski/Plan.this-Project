@@ -1,28 +1,38 @@
 .input-container {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   column-gap: 1vw;
   row-gap: 1vh;
+  height: 10vh;
 }
 .input-container form {
   display: flex;
-  flex-direction: column;
+  width: 100%;
   align-items: center;
-  column-gap: 1vw;
-  row-gap: 1vh;
+  height: auto;
+  flex-direction: column;
+}
+.input-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
+.input-container form button {
+  min-width: 10vw;
+  width: auto;
+}
 .task-cancel-btn {
   position: absolute;
-  bottom: 0;
-  left: 17vw;
-}
-.input-container form button {
-  width: 10vw;
+  top: 5.7vh;
+  right: 2vw;
 }
 .input-container button {
+  position: absolute;
+  top: 5.7vh;
   padding: 0.3vh 0.4vw;
   margin: 0 1vw;
   width: auto;
@@ -38,7 +48,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input {
+.input-container input {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
@@ -48,14 +58,17 @@ input {
   border-radius: 5px;
   color: grey;
 }
-input[type="number"] {
-  width: 1.2vw;
+.input-container input[type="number"] {
+  width: 2vw;
+  height: 3vh;
   margin: 0;
-  padding: 0 0.1vw;
+  padding: 0;
+  text-align: center;
 
   -moz-appearance: textfield;
 }
-input[type="text"] {
+.input-container input[type="text"] {
   margin-left: 1vw;
+  height: 3vh;
   width: 20vw;
 }

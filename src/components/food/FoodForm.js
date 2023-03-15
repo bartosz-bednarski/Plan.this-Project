@@ -97,7 +97,12 @@ const FoodForm = (props) => {
       )}
       {formIsDisplayed && (
         <>
-          <form onSubmit={onSubmit} method="get" id="mealForm">
+          <form
+            className={classes["food-form"]}
+            onSubmit={onSubmit}
+            method="get"
+            id="mealForm"
+          >
             <input
               type="text"
               value={mealName}

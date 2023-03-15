@@ -1,9 +1,9 @@
 .task {
   position: relative;
-  width: 24.75vw;
+  width: 84%;
   height: auto;
-  margin: 1vh 0;
-  padding: 1vh 1vw;
+  margin: 1vh 5%;
+  padding: 1vh 3%;
   background: #ffffff;
   border: 2px solid black;
   border-radius: 10px;
@@ -16,12 +16,39 @@
   flex-direction: row;
   column-gap: 1vw;
   align-items: center;
+  animation: task-add 500ms;
 }
-.tick {
+.task-delete {
+  animation: task-delete 500ms;
+  background-color: #f3066a;
+}
+@keyframes task-delete {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(6.3vh);
+    display: none;
+  }
+}
+@keyframes task-add {
+  from {
+    transform: translateY(-6.3vh);
+  }
+  to {
+    transform: translateY(0);
+    display: none;
+  }
+}
+.task .tick {
   position: absolute;
-  left: -3vw;
+  left: -2.8vw;
+  width: 2vw;
+  height: 3vh;
 }
-
+.tick:active {
+  transform: scale(1.2, 1.2);
+}
 .task button {
   padding: 0.1vh 0.4vw;
   width: auto;

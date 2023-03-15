@@ -1,10 +1,19 @@
 .menu-layout {
   display: flex;
   width: 100vw;
-  height: 90vh;
+  height: 92vh;
   background-color: #f5f5f5;
   justify-content: center;
   align-items: center;
+  animation: menu-load 1s;
+}
+@keyframes menu-load {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(0vh);
+  }
 }
 .menu-container {
   display: flex;

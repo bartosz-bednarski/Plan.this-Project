@@ -7,6 +7,7 @@ const foodInitialState = {
   Breakfast: { name: "", ingredients: "", directions: "" },
   Dinner: { name: "", ingredients: "", directions: "" },
   Supper: { name: "", ingredients: "", directions: "" },
+  Extra: { name: "", ingredients: "", directions: "" },
   foodIsUpdated: true,
   displayMenu: { value: false, type: "", action: "", id: "" },
 };
@@ -23,6 +24,7 @@ const food = createSlice({
         state.Breakfast = { name: "", ingredients: "", directions: "" };
         state.Dinner = { name: "", ingredients: "", directions: "" };
         state.Supper = { name: "", ingredients: "", directions: "" };
+        state.Extra = { name: "", ingredients: "", directions: "" };
       } else {
         state.todayMeals = Object.keys(action.payload).map((key) => {
           return { id: key, ...action.payload[key] };
@@ -53,6 +55,13 @@ const food = createSlice({
           state.Supper = { name: "", ingredients: undefined, directions: "" };
         } else {
           state.Supper = state.todayMeals.find((key) => key.type === "Supper");
+        }
+        if (
+          state.todayMeals.find((key) => key.type === "Extra") === undefined
+        ) {
+          state.Extra = { name: "", ingredients: undefined, directions: "" };
+        } else {
+          state.Extra = state.todayMeals.find((key) => key.type === "Extra");
         }
       }
     },

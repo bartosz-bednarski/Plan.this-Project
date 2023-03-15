@@ -9,6 +9,15 @@
   background-color: white;
   border: 3px solid #eb3677;
   border-radius: 20px;
+  animation: form-in 1s;
+}
+@keyframes form-in {
+  from {
+    transform: translateY(20vh);
+  }
+  to {
+    transform: translateY(0vh);
+  }
 }
 .form-box {
   display: flex;

@@ -14,7 +14,6 @@
 
   font-size: 1vw;
   line-height: 38px;
-
   color: #000000;
 }
 .meal-item-selected {
@@ -24,6 +23,15 @@
   z-index: 2;
   scroll-behavior: smooth;
   overflow-y: scroll;
+  animation: form-in 1s;
+}
+@keyframes form-in {
+  from {
+    transform: translateY(-10vh);
+  }
+  to {
+    transform: translateY(0vh);
+  }
 }
 .meal-item-selected::-webkit-scrollbar {
   display: none;
@@ -47,6 +55,7 @@
   font-size: 1vw;
   line-height: 28px;
   text-align: start;
+
   width: 90%;
   height: 40vh;
 }

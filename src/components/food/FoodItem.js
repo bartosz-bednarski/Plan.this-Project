@@ -30,7 +30,7 @@ const FoodItem = (props) => {
               <p className={classes["image-text"]}>
                 {!directionsAreShown ? "DIRECTIONS" : "INGREDIENTS"}
               </p>
-              <img className={classes["meal-img"]} src={breakfast} />
+              <img className={classes["meal-img"]} src={props.img} />
             </div>
 
             <span className={classes["meal-ingredients"]}>

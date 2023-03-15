@@ -31,8 +31,8 @@ const CalendarComponent = () => {
 export default CalendarComponent;
 
 const CalendarContainer = styled.div`
-  width: 30vw;
-  height: 45vh;
+  width: auto;
+  height: auto;
 
   padding: 1vh 1vw;
   margin: 0 auto;

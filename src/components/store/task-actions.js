@@ -83,6 +83,7 @@ export const deleteTask = (task) => {
     };
     try {
       await sendRequest();
+      dispatch(tasksActions.setTasksAreUpdated());
     } catch (error) {
       console.log(error);
     }

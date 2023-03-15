@@ -1,15 +1,28 @@
-form {
+.food-form {
   width: 22vw;
   height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Roboto";
+  font-style: normal;
+  animation: form-in 1s;
 }
 .meal-chose-box {
   display: flex;
+  height: 20vh;
+  margin-bottom: 2vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+@keyframes form-in {
+  from {
+    transform: translateY(20vh);
+  }
+  to {
+    transform: translateY(0vh);
+  }
 }
 .meal-chose-box button {
   background-color: transparent;
@@ -27,14 +40,34 @@ form {
 .meal-chose-box button img {
   height: 10vh;
 }
+.meal-chose-box a {
+  position: absolute;
+  bottom: 8vh;
+  text-decoration: none;
+}
 textarea {
   height: 10vh;
   margin: 1vh 0;
-  width: 90%;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+textarea::-webkit-scrollbar {
+  /* -webkit-appearance: none; */
+  width: 4px;
+  background-color: #f3066a;
+
+  margin: 4px;
 }
 input {
-  width: 90%;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 80%;
   margin: 0;
+  height: 5vh;
 }
 
 .meal-ingredients {
