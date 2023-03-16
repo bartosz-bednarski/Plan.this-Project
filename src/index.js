@@ -7,9 +7,7 @@ import classes from "./index.module.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <body className={classes.body}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </body>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );

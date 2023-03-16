@@ -39,7 +39,7 @@
 }
 .image-box {
   position: relative;
-  width: 15vh;
+
   height: 15vh;
   margin: 1vh 0;
   border-radius: 50%;
@@ -49,8 +49,8 @@
 }
 .image-text {
   position: absolute;
-  left: 1vh;
-  top: 3vh;
+  left: 1.5vh;
+  top: 4vh;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;

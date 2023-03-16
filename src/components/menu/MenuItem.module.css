@@ -7,12 +7,12 @@
   width: 22vw;
   height: auto;
   margin-bottom: 2vh;
-  padding: 0vh 1vw;
-  align-items: center;
+  padding: 0.2vh 1vw;
+  align-items: flex-start;
   font-family: "Roboto";
   font-style: normal;
 
-  font-size: 1vw;
+  font-size: 2vh;
   line-height: 38px;
   color: #000000;
 }
@@ -38,7 +38,7 @@
 }
 .meal-item-header {
   display: flex;
-  width: 22vw;
+  width: auto;
   height: 5vh;
   font-weight: 500;
   align-items: center;
@@ -52,7 +52,7 @@
   flex-direction: column;
   z-index: 2;
   font-weight: 400;
-  font-size: 1vw;
+  font-size: 2vh;
   line-height: 28px;
   text-align: start;
 
@@ -67,15 +67,16 @@
   padding: 1vh 0;
   border-top: 3px solid #eb3677;
   font-weight: 500;
-  font-size: 1vw;
+  font-size: 2vh;
   line-height: 38px;
   text-align: center;
   color: #000000;
 }
 .meal-item-header img {
-  height: 5vh;
-  width: 3vw;
+  height: 4vh;
+  width: 5vh;
   margin-right: 3vw;
+  border-radius: 20px;
 }
 .btn-box {
   border-top: 3px solid #eb3677;
@@ -87,4 +88,9 @@
 .btn-box button {
   padding: 0.4vh 1.5vw;
   font-size: 1vw;
+}
+@media (max-width: 1000px) {
+  .meal-item {
+    width: 60vw;
+  }
 }

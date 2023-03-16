@@ -1,0 +1,30 @@
+.header-container {
+  height: 6vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.header-container .logo {
+  font-family: "Grand Hotel", cursive;
+  font-size: 36px;
+  margin: 1vh 0 1vh 4vw;
+  background: linear-gradient(
+    to right,
+    #eb3677 0%,
+    #eb3677 52%,
+    #4b79ef 52%,
+    #4b79ef 56%,
+    #f3066a 56%,
+    #f3066a 100%
+  );
+  background-clip: text;
+  /*add this line, it defines how far the background should extend within an element, here we set it to text */
+  -webkit-background-clip: text;
+  /* add this line, for browsers compatibility */
+  -webkit-text-fill-color: transparent;
+}
+.header-container .login-btn {
+  margin: 1vh 4vw 1vh 0;
+  padding: 0.5vh 2vw;
+  font-size: 2vh;
+}

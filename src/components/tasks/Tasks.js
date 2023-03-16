@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import plusBtn from "../../assets/plus-btn.svg";
 import TaskForm from "./TasksForm";
 
-const Tasks = () => {
+const Tasks = ({ weatherData }) => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.tasksReducer.todayTasks);
   const date = useSelector((state) => state.tasksReducer.date);
@@ -29,6 +29,7 @@ const Tasks = () => {
   // });
 
   console.log(tasks);
+  console.log(weatherData);
   // console.log(newTasks);
 
   return (
@@ -85,7 +86,9 @@ const Tasks = () => {
             </Sticker>
             <Sticker>
               <img src={cloudyDay} />
-              <span className={classes.temperature}>23 °C</span>
+              <span className={classes.temperature}>
+                {weatherData.current_weather.temperature} °C
+              </span>
             </Sticker>
           </div>
         </div>
