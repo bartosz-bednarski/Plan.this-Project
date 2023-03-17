@@ -19,7 +19,7 @@ const Home = () => {
             <br />
             <br /> Soo are you in ?
           </p>
-          <NavLink to="/authentication">
+          <NavLink to="/authentication?mode=register">
             <button>Create account</button>
           </NavLink>
         </div>

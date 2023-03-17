@@ -12,12 +12,15 @@ import AuthHomePage from "./pages/AuthHome";
 import AuthenticationPage, {
   action as authAction,
 } from "./pages/Authentication";
+import { checkUserAuthentication, getUserStatus } from "./Firebase/authUser";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    loader: getUserStatus,
     errorElement: <ErrorPage />,
+
     children: [
       {
         index: true,
@@ -26,6 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <AuthHomePage />,
+        loader: checkUserAuthentication,
         children: [
           {
             path: "tasks",

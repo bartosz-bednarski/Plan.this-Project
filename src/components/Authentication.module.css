@@ -30,3 +30,13 @@
 .form button {
   margin-top: 2vh;
 }
+.link {
+  text-align: center;
+  margin-top: 1vh;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+.link:hover {
+  color: #f3066a;
+}

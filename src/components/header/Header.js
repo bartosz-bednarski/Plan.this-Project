@@ -18,7 +18,7 @@ const Header = () => {
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }
-                to="/"
+                to="/home"
               >
                 Home
               </NavLink>
@@ -29,7 +29,18 @@ const Header = () => {
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }
-                to="/sport"
+                to="tasks"
+              >
+                Tasks
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                is
+                className={({ isActive }) =>
+                  isActive ? classes.active : classes.link
+                }
+                to="sport"
               >
                 Sport
               </NavLink>
@@ -40,7 +51,7 @@ const Header = () => {
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }
-                to="/food"
+                to="food"
               >
                 Food
               </NavLink>
@@ -51,7 +62,7 @@ const Header = () => {
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }
-                to="/shopping"
+                to="shopping"
               >
                 Shopping
               </NavLink>
