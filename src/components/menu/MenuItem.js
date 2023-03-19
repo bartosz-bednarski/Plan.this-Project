@@ -83,7 +83,7 @@ const MenuItem = (props) => {
           <span>{props.data.directions}</span>
           <span className={classes["btn-box"]}>
             {displayAddBtn === true && (
-              <NavLink to="/food">
+              <NavLink to="/home/food">
                 <button onClick={addDailyMeal}>Add</button>
               </NavLink>
             )}

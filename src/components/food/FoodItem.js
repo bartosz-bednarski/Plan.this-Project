@@ -41,9 +41,16 @@ const FoodItem = (props) => {
                 {ingredients != null &&
                   ingredients
                     .split(",")
-                    .map((ingredients) => (
-                      <li key={ingredients}>{ingredients}</li>
-                    ))}
+                    .map(
+                      (ingredients) =>
+                        `${
+                          ingredients !== "" ? (
+                            <li key={ingredients}>{ingredients}</li>
+                          ) : (
+                            ""
+                          )
+                        }`
+                    )}
               </ul>
             )}
             {directionsAreShown && (

@@ -38,7 +38,7 @@ const Food = () => {
         <FoodItem type="Supper" img={supperImg} />
         <FoodItem type="Extra" img={extraImg} />
       </div>
-      <NavLink to="/menu">
+      <NavLink to="menu">
         <button className={classes["menu-nav-btn"]}>Menu</button>
       </NavLink>
     </div>

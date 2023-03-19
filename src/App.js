@@ -7,12 +7,13 @@ import RootLayout from "./pages/Root";
 import ShoppingPage from "./pages/Shopping";
 import SportPage from "./pages/Sport";
 import MenuPage from "./pages/Menu";
-import HomePage from "./pages/Home";
-import AuthHomePage from "./pages/AuthHome";
+import WelcomePage from "./pages/Welcome";
+import HomeLayout from "./pages/HomeLayout";
 import AuthenticationPage, {
   action as authAction,
 } from "./pages/Authentication";
 import { checkUserAuthentication, getUserStatus } from "./Firebase/authUser";
+import HomePage from "./pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -24,13 +25,17 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <WelcomePage />,
       },
       {
-        path: "/home",
-        element: <AuthHomePage />,
+        path: "auth",
+        element: <HomeLayout />,
         loader: checkUserAuthentication,
         children: [
+          {
+            path: "home",
+            element: <HomePage />,
+          },
           {
             path: "tasks",
             element: <TasksPage />,
@@ -42,14 +47,14 @@ const router = createBrowserRouter([
             element: <FoodPage />,
           },
           {
-            path: "menu",
+            path: "food/menu",
             element: <MenuPage />,
           },
           { path: "shopping", element: <ShoppingPage /> },
         ],
       },
       {
-        path: "/authentication",
+        path: "authentication",
         element: <AuthenticationPage />,
         action: authAction,
       },

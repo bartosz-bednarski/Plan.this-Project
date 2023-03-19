@@ -37,6 +37,11 @@
 .calendar {
   display: none;
 }
+.logout-button {
+  padding: 0.7vh 2vw;
+  font-size: 1.7vh;
+  font-weight: 600;
+}
 @media (max-width: 1000px) {
   .header-container nav {
     display: none;

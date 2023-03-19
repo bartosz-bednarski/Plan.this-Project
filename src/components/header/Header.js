@@ -4,8 +4,8 @@ import Logo from "../UI/Logo";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CalendarComponent from "../UI/Calendar";
+import { signOutUser } from "../../Firebase/authUser";
 const Header = () => {
-  const mealsReducer = useSelector((state) => state.mealsReducer);
   return (
     <div className={classes["header-container"]}>
       <div className={classes["header-box"]}>
@@ -18,7 +18,7 @@ const Header = () => {
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }
-                to="/home"
+                to="home"
               >
                 Home
               </NavLink>
@@ -70,14 +70,12 @@ const Header = () => {
           </ul>
         </nav>
         <div className={classes.auth}>
-          <Button>Logout</Button>
-          <button
-            onClick={() => {
-              console.log("meals reducer after fetch", mealsReducer);
-            }}
-          >
-            Check console.log
-          </button>
+          <NavLink to="/">
+            <button className={classes["logout-button"]} onClick={signOutUser}>
+              Logout
+            </button>
+          </NavLink>
+
           <div className={classes.calendar}>
             <CalendarComponent />
           </div>

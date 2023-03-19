@@ -1,5 +1,6 @@
+import Build from "../components/inBuild/Build";
 const SportPage = () => {
-  return <h1>Sport page</h1>;
+  return <Build />;
 };
 
 export default SportPage;

@@ -21,10 +21,15 @@ const currentDate = createSlice({
         "November",
         "December",
       ];
-      //   console.log(action.payload);
+      console.log(action.payload);
       state.dateTotal = action.payload.dateTotal.replace(/\s/g, "");
       state.month = months[action.payload.month];
-      state.day = days[action.payload.day - 1];
+      if (action.payload.day !== 0) {
+        state.day = days[action.payload.day - 1];
+      } else {
+        state.day = "SUN";
+      }
+
       state.date = action.payload.date;
     },
   },

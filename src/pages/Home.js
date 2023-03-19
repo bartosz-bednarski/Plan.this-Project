@@ -1,12 +1,6 @@
-import { Outlet } from "react-router-dom";
-import Home from "../components/startPage/Home";
+import Build from "../components/inBuild/Build";
 const HomePage = () => {
-  return (
-    <>
-      <Home />
-      <Outlet />
-    </>
-  );
+  return <Build />;
 };
 
 export default HomePage;

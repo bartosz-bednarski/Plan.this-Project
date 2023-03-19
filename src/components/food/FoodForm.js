@@ -68,7 +68,7 @@ const FoodForm = (props) => {
     <>
       {!chooseBoxIsDisplayed && (
         <div className={classes["meal-chose-box"]}>
-          <NavLink to="/menu">
+          <NavLink to="menu">
             <button
               onClick={() =>
                 dispatch(

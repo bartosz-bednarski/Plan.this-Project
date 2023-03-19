@@ -37,6 +37,15 @@ export async function action({ request }) {
       authData.password
     )
       .then((userCredential) => {
+        setDoc(doc(db, "users", userCredential.user.uid), {
+          userBio: {
+            email: authData.email,
+          },
+        });
+        // return db
+        //   .collection("users")
+        //   .doc(userCredential.user.uid)
+        //   .set({ email: authData.email });
         const user = userCredential.user;
         return user;
       })
@@ -78,7 +87,7 @@ export async function action({ request }) {
     if (loginAction) {
       return loginAction;
     } else {
-      return redirect("/home");
+      return redirect("/auth/home");
     }
   }
 }

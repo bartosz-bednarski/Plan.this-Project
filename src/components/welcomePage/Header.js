@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { getUserId, signOutUser } from "../../Firebase/authUser";
 const Header = () => {
   const userId = getUserId();
+
   return (
     <div className={classes["header-container"]}>
       <span className={classes["logo"]}>Plan.This</span>

@@ -1,10 +1,12 @@
 import { foodActions } from "./food-slice";
-
+import { getUserId } from "../../Firebase/authUser";
+import { json } from "react-router-dom";
 export const fetchMealsData = (date) => {
   return async (dispatch) => {
     const fetchData = async () => {
+      const userId = getUserId();
       const response = await fetch(
-        `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/meals/${date}.json`
+        `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userId}/meals/${date}.json`
       );
       const data = await response.json();
       return data;
@@ -22,8 +24,9 @@ export const fetchMealsData = (date) => {
 export const sendNewMeal = (newMeal) => {
   return async (dispatch) => {
     const sendRequest = async () => {
+      const userId = getUserId();
       const response = await fetch(
-        `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/meals/${newMeal.date}.json `,
+        `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userId}/meals/${newMeal.date}.json `,
         {
           method: "POST",
           body: JSON.stringify({
@@ -49,8 +52,9 @@ export const sendNewMeal = (newMeal) => {
 export const updateMeal = (updatedMeal) => {
   return async (dispatch) => {
     const sendRequest = async () => {
+      const userId = getUserId();
       const response = await fetch(
-        `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/meals/${updatedMeal.date}/${updatedMeal.id}.json `,
+        `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userId}/meals/${updatedMeal.date}/${updatedMeal.id}.json `,
         {
           method: "PUT",
           body: JSON.stringify({

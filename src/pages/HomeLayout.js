@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
-const AuthHomePage = () => {
+const HomeLayout = () => {
   return (
     <>
       <Header />
@@ -8,4 +8,4 @@ const AuthHomePage = () => {
     </>
   );
 };
-export default AuthHomePage;
+export default HomeLayout;

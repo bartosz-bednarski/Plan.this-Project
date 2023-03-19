@@ -11,6 +11,8 @@ export async function signOutUser() {
       console.log("signOut error");
     });
   localStorage.removeItem("userId");
+  checkUserAuthentication();
+  window.location.reload();
   return action;
 }
 

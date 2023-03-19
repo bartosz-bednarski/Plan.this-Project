@@ -1,5 +1,6 @@
+import Build from "../components/inBuild/Build";
 const ShoppingPage = () => {
-  return <h1>Shopping page</h1>;
+  return <Build />;
 };
 
 export default ShoppingPage;

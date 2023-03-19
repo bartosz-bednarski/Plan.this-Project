@@ -1,10 +1,11 @@
 import { menuActions } from "./menu-slice";
-
+import { getUserId } from "../../Firebase/authUser";
 export const fetchMenuData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
+      const userId = getUserId();
       const response = await fetch(
-        "https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/menu.json"
+        `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userId}/menu.json`
       );
       const data = await response.json();
       return data;
@@ -22,8 +23,9 @@ export const fetchMenuData = () => {
 export const sendNewMenuMeal = (newMeal) => {
   return async (dispatch) => {
     const sendRequest = async () => {
+      const userId = getUserId();
       const response = await fetch(
-        `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/menu/${newMeal.type}.json `,
+        `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userId}/menu/${newMeal.type}.json `,
         {
           method: "POST",
           body: JSON.stringify({
@@ -50,8 +52,9 @@ export const sendNewMenuMeal = (newMeal) => {
 export const updateMenuMeal = (updatedMeal) => {
   return async (dispatch) => {
     const sendRequest = async () => {
+      const userId = getUserId();
       const response = await fetch(
-        `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/menu/${updatedMeal.type}/${updatedMeal.id}.json `,
+        `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userId}/menu/${updatedMeal.type}/${updatedMeal.id}.json `,
         {
           method: "PUT",
           body: JSON.stringify({
@@ -78,8 +81,9 @@ export const updateMenuMeal = (updatedMeal) => {
 export const deleteMenuMeal = (menuMeal) => {
   return async (dispatch) => {
     const sendRequest = async () => {
+      const userId = getUserId();
       const response = await fetch(
-        `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/menu/${menuMeal.type}/${menuMeal.id}.json`,
+        `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userId}/menu/${menuMeal.type}/${menuMeal.id}.json`,
         {
           method: "DELETE",
         }

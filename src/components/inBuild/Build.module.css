@@ -1,0 +1,12 @@
+.build-container {
+  width: 100vw;
+  height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 7vh;
+  line-height: 10vh;
+}
