@@ -27,6 +27,7 @@ export async function action({ request }) {
   const authData = {
     email: data.get("email"),
     password: data.get("password"),
+    name: data.get("name"),
   };
 
   const auth = getAuth();
@@ -37,17 +38,26 @@ export async function action({ request }) {
       authData.password
     )
       .then((userCredential) => {
-        setDoc(doc(db, "users", userCredential.user.uid), {
-          userBio: {
-            email: authData.email,
-          },
-        });
+        return fetch(
+          `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userCredential.user.uid}/bio.json `,
+          {
+            method: "POST",
+            body: JSON.stringify({
+              userId: userCredential.user.uid,
+              name: authData.name,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         // return db
         //   .collection("users")
         //   .doc(userCredential.user.uid)
         //   .set({ email: authData.email });
-        const user = userCredential.user;
-        return user;
+        // const user = userCredential.user;
+
+        // return user;
       })
       .catch((error) => {
         const errorMessage = error.message;

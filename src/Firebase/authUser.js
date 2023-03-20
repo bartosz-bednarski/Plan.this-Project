@@ -23,13 +23,6 @@ export function getUserStatus() {
       const uid = user.uid;
       localStorage.setItem("userId", uid);
     }
-    // if (user) {
-    //   const uid = user.uid;
-    //   console.log(uid)
-    //   // ...
-    // } else {
-    //   redirect("/");
-    // }
   });
   return status;
 }
@@ -41,7 +34,6 @@ export function getUserId() {
 
 export async function checkUserAuthentication() {
   const userId = getUserId();
-  console.log(userId);
   if (!userId) {
     return redirect("/");
   }

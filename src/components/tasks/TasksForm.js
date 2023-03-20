@@ -1,30 +1,9 @@
 import classes from "./TasksForm.module.css";
-import { useState } from "react";
 import { updateTask, sendNewTask } from "../store/task-actions";
 import { useDispatch, useSelector } from "react-redux";
-import { tasksActions } from "../store/task-slice";
 const TasksForm = (props) => {
   const dispatch = useDispatch();
-  const taskToUpdate = useSelector((state) => state.tasksReducer.taskToUpdate);
   const date = useSelector((state) => state.tasksReducer.date);
-  // const [enteredHours, setEnteredHours] = useState(taskToUpdate.hours);
-  // const [enteredMinutes, setEnteredMinutes] = useState(taskToUpdate.minutes);
-  // const [enteredDescription, setEnteredDescription] = useState(
-  //   taskToUpdate.topic
-  // );
-
-  // const hours = enteredHours.slice(0, 2);
-  // const minutes = enteredMinutes.slice(3);
-  // const hoursChangeHandler = (event) => {
-  //   setEnteredHours(event.target.value);
-  // };
-  // const minutesChangeHandler = (event) => {
-  //   setEnteredMinutes(event.target.value);
-  // };
-  // const descriptionChangeHandler = (event) => {
-  //   setEnteredDescription(event.target.value);
-  // };
-
   const onSubmit = (event) => {
     event.preventDefault();
     console.log("submit");
@@ -86,7 +65,9 @@ const TasksForm = (props) => {
               value={props.description}
             />
           </div>
-          <button>{props.type}</button>
+          <button className={classes["add-update-btn"]}>
+            {props.type === "Add new task" ? "Add new" : `${props.type}`}
+          </button>
         </form>
 
         {props.type === "Update" && (

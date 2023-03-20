@@ -23,7 +23,6 @@ const Menu = () => {
   const supper = useSelector((state) => state.menuReducer.menuSupper);
   const extra = useSelector((state) => state.menuReducer.menuExtra);
 
-  console.log(breakfast);
   const showModal = useSelector((state) => state.menuReducer.showModal);
 
   return (

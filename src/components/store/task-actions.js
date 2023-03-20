@@ -1,7 +1,4 @@
 import { tasksActions } from "./task-slice";
-import { getFirestore } from "firebase/firestore";
-import app from "../../Firebase/firebase";
-import { setDoc, doc, updateDoc } from "firebase/firestore";
 import { getUserId } from "../../Firebase/authUser";
 export const fetchTaskData = (date) => {
   return async (dispatch) => {
@@ -19,36 +16,28 @@ export const fetchTaskData = (date) => {
     } catch (error) {
       console.log(error);
     }
+    const fetchUserBio = async () => {
+      const userId = getUserId();
+      const response = await fetch(
+        `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userId}/bio.json`
+      );
+      const data = await response.json();
+      return data;
+    };
+    try {
+      const userData = await fetchUserBio();
+      const userName = Object.values(userData)[0].name;
+      dispatch(tasksActions.setUserName(userName));
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
 export const sendNewTask = (newTask) => {
   return async (dispatch) => {
     const sendRequest = async () => {
-      // const db = getFirestore(app);
       const userId = getUserId();
-      // setDoc(doc(db, "users", userId), {
-      //   tasks: {
-      //     [newTask.date]: {
-      //       time: newTask.time,
-      //       description: newTask.description,
-      //     },
-      //   },
-      // });
-      //   const response = await fetch(
-      //     `https://react-training-http-e5994-default-rtdb.europe-west1.firebasedatabase.app/tasks/${newTask.date}.json `,
-      //     {
-      //       method: "POST",
-      //       body: JSON.stringify({
-      //         time: newTask.time,
-      //         description: newTask.description,
-      //       }),
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //       },
-      //     }
-      //   );
-      // };
       const response = await fetch(
         `https://planthis-54a89-default-rtdb.europe-west1.firebasedatabase.app/${userId}/tasks/${newTask.date}.json `,
         {

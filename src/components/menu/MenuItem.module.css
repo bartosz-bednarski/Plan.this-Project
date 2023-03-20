@@ -93,4 +93,8 @@
   .meal-item {
     width: 60vw;
   }
+  .btn-box button {
+    padding: 0.4vh 3vw;
+    font-size: 2vh;
+  }
 }

@@ -13,7 +13,7 @@
   font-style: normal;
   font-weight: 700;
   font-size: 44px;
-  line-height: 72px;
+  line-height: 7vh;
   text-align: center;
   width: fit-content;
   color: #000000;
@@ -72,5 +72,8 @@
     height: auto;
     align-items: center;
     row-gap: 3vh;
+  }
+  .calendar {
+    width: 90vw;
   }
 }

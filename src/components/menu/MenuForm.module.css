@@ -48,7 +48,7 @@
   border-radius: 10px;
 }
 .form-box label {
-  font-size: 1.1vw;
+  font-size: 2vh;
 }
 .form-box textarea {
   margin: 0;
@@ -60,4 +60,13 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
+}
+@media (max-width: 1000px) {
+  .form-container {
+    width: 90vw;
+    margin: 10vh 0vw 0 4vw;
+  }
+  .form-box {
+    width: 90vw;
+  }
 }

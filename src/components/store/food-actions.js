@@ -1,6 +1,5 @@
 import { foodActions } from "./food-slice";
 import { getUserId } from "../../Firebase/authUser";
-import { json } from "react-router-dom";
 export const fetchMealsData = (date) => {
   return async (dispatch) => {
     const fetchData = async () => {
@@ -13,7 +12,6 @@ export const fetchMealsData = (date) => {
     };
     try {
       const mealsData = await fetchData();
-      console.log(mealsData);
       dispatch(foodActions.getMeals(mealsData));
     } catch (error) {
       console.log(error);

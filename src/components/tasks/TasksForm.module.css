@@ -20,7 +20,11 @@
   justify-content: center;
   width: 100%;
 }
-
+.add-update-btn {
+  position: absolute;
+  top: 5.7vh;
+  right: 9vw;
+}
 .input-container form button {
   min-width: 10vw;
   width: auto;
@@ -29,14 +33,6 @@
   position: absolute;
   top: 5.7vh;
   right: 2vw;
-}
-.input-container button {
-  position: absolute;
-  top: 5.7vh;
-  padding: 0.3vh 0.4vw;
-  margin: 0 1vw;
-  width: auto;
-  font-size: 18px;
 }
 .input-container-modify button {
   padding: 0.2vh 0.4vw;
@@ -59,7 +55,7 @@ input::-webkit-inner-spin-button {
   color: grey;
 }
 .input-container input[type="number"] {
-  width: 2vw;
+  width: auto;
   height: 3vh;
   margin: 0;
   padding: 0;
@@ -71,4 +67,9 @@ input::-webkit-inner-spin-button {
   margin-left: 1vw;
   height: 3vh;
   width: 20vw;
+}
+@media (max-width: 1300px) {
+  .add-update-btn {
+    right: 25vw;
+  }
 }

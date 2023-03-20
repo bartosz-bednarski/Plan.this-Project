@@ -4,12 +4,8 @@ import CalendarComponent from "../UI/Calendar";
 import Sticker from "../UI/Sticker";
 import cloudyDay from "../../assets/cloudy_day.png";
 import { useDispatch, useSelector } from "react-redux";
-import { useLoaderData } from "react-router-dom";
-import { tasksActions } from "../store/task-slice";
 import { fetchTaskData } from "../store/task-actions";
-import { useEffect, useState } from "react";
-import plusBtn from "../../assets/plus-btn.svg";
-import TaskForm from "./TasksForm";
+import { useEffect } from "react";
 
 const Tasks = ({ weatherData }) => {
   const dispatch = useDispatch();
@@ -19,24 +15,17 @@ const Tasks = ({ weatherData }) => {
   const tasksAreUpdated = useSelector(
     (state) => state.tasksReducer.tasksAreUpdated
   );
+  const userName = useSelector((state) => state.tasksReducer.userName);
 
   useEffect(() => {
     dispatch(fetchTaskData(date));
   }, [date, tasksAreUpdated]);
 
-  // const newTasks = Object.keys(tasks).map((key) => {
-  //   return { id: key, ...tasks[key] };
-  // });
-
-  console.log(tasks);
-  console.log(weatherData);
-  // console.log(newTasks);
-
   return (
     <div className={classes["hero-container"]}>
       <div className={classes["hero-box"]}>
         <div className={classes["hero-left"]}>
-          <span className={classes["header-1"]}>Hello Adam</span>
+          <span className={classes["header-1"]}>Hello {userName}</span>
           <span className={classes["header-2"]}>
             Let’s jump into a new day !
           </span>
@@ -51,26 +40,6 @@ const Tasks = ({ weatherData }) => {
               />
             ))}
             <TasksItem type="Add new task" time={""} description={""} />
-            {/* <li className={`${classes.task} ${classes["add-task"]}`}>
-              {!showNewTaskForm && (
-                <span
-                  className={classes["plus-btn"]}
-                  onClick={showNewTaskHandler}
-                >
-                  <img src={plusBtn} />
-                </span>
-              )}
-              {showNewTaskForm && (
-                <>
-                  <Task
-                    time={""}
-                    description={""}
-                    hideNewTaskHandler={hideNewTaskHandler}
-                    type="Add new task"
-                  />
-                </>
-              )}
-            </li> */}
           </ul>
         </div>
         <div className={classes["hero-right"]}>

@@ -12,7 +12,6 @@ export const fetchMenuData = () => {
     };
     try {
       const menuMealsData = await fetchData();
-
       await dispatch(menuActions.getMenuMeals(menuMealsData));
     } catch (error) {
       console.log(error);

@@ -23,7 +23,9 @@ const Home = () => {
             <button>Create account</button>
           </NavLink>
         </div>
-        <img src={heroImg} />
+        <div className={classes["hero-right"]}>
+          <img className={classes["hero-img"]} src={heroImg} />
+        </div>
       </div>
     </div>
   );

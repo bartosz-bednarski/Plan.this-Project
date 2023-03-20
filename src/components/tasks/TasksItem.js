@@ -2,7 +2,6 @@ import classes from "./TasksItem.module.css";
 import { useState } from "react";
 import TasksForm from "./TasksForm";
 import { useDispatch, useSelector } from "react-redux";
-import { tasksActions } from "../store/task-slice";
 import plusBtn from "../../assets/plus-btn.svg";
 import tickActiveBtn from "../../assets/tickActive.svg";
 import tickDisabledBtn from "../../assets/tickDisabled.svg";
@@ -24,9 +23,6 @@ const TasksItem = (props) => {
   };
   const tickClickedHandler = () => {
     setTickClicked(true);
-  };
-  const tickClearHandler = () => {
-    setTickClicked(false);
   };
   const hoursHandler = (event) => {
     setHours(event.target.value);
@@ -50,54 +46,12 @@ const TasksItem = (props) => {
       dispatch(deleteTask({ date: date, id: props.id }));
     }, 500);
   };
-  // const [taskIsEditing, setTaskIsEditing] = useState(false);
-  // const [enteredHours, setEnteredHours] = useState(props.time.slice(0, 2));
-  // const [enteredMinutes, setEnteredMinutes] = useState(props.time.slice(3));
-  // const [enteredDescription, setEnteredDescription] = useState(props.topic);
-  // const date = useSelector((state) => state.dateReducer.dateTotal);
-  // const dispatch = useDispatch();
-  // const hoursChangeHandler = (event) => {
-  //   setEnteredHours(event.target.value);
-  // };
-  // const minutesChangeHandler = (event) => {
-  //   setEnteredMinutes(event.target.value);
-  // };
-  // const descriptionChangeHandler = (event) => {
-  //   setEnteredDescription(event.target.value);
-  // };
   const showFormHandler = () => {
-    // setTaskIsEditing(!taskIsEditing);
     setShowForm(true);
   };
   const hideFormHandler = () => {
     setShowForm(false);
   };
-  // const deleteTaskHandler = () => {
-  //   const taskToDelete = {
-  //     date: date,
-  //     id: props.id,
-  //   };
-  //   dispatch(deleteTask(taskToDelete));
-  //   setTaskIsModified(false);
-  //   setTimeout(() => {
-  //     dispatch(fetchTaskData(dispatch));
-  //   }, 1000);
-  // };
-  // const submitHandler = (event) => {
-  //   event.preventDefault();
-  //   const task = {
-  //     time: `${enteredHours}:${enteredMinutes}`,
-  //     description: enteredDescription,
-  //     date: date,
-  //     id: props.id,
-  //   };
-  //   dispatch(updateTask(task));
-  //   setTaskIsModified(false);
-  //   setTimeout(() => {
-  //     dispatch(fetchTaskData(dispatch));
-  //   }, 1000);
-  // };
-  //render doesnt work !!!
   return (
     <>
       {props.type === "Update" && (

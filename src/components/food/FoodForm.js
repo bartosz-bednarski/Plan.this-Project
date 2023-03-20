@@ -63,7 +63,6 @@ const FoodForm = (props) => {
     }
     props.updateHandler();
   };
-  console.log(props.action);
   return (
     <>
       {!chooseBoxIsDisplayed && (

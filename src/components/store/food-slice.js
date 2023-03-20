@@ -34,7 +34,7 @@ const food = createSlice({
         ) {
           state.Breakfast = {
             name: "",
-            ingredients: undefined,
+            ingredients: "",
             directions: "",
           };
         } else {
@@ -45,21 +45,21 @@ const food = createSlice({
         if (
           state.todayMeals.find((key) => key.type === "Dinner") === undefined
         ) {
-          state.Dinner = { name: "", ingredients: undefined, directions: "" };
+          state.Dinner = { name: "", ingredients: "", directions: "" };
         } else {
           state.Dinner = state.todayMeals.find((key) => key.type === "Dinner");
         }
         if (
           state.todayMeals.find((key) => key.type === "Supper") === undefined
         ) {
-          state.Supper = { name: "", ingredients: undefined, directions: "" };
+          state.Supper = { name: "", ingredients: "", directions: "" };
         } else {
           state.Supper = state.todayMeals.find((key) => key.type === "Supper");
         }
         if (
           state.todayMeals.find((key) => key.type === "Extra") === undefined
         ) {
-          state.Extra = { name: "", ingredients: undefined, directions: "" };
+          state.Extra = { name: "", ingredients: "", directions: "" };
         } else {
           state.Extra = state.todayMeals.find((key) => key.type === "Extra");
         }

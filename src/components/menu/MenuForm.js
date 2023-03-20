@@ -34,7 +34,6 @@ const MenuForm = () => {
       type !== "Extra"
     ) {
       setTypeWarning("type-input-warning");
-      console.log("error");
       return;
     }
     setTypeWarning("type-input");
@@ -61,8 +60,6 @@ const MenuForm = () => {
     }
 
     dispatch(menuActions.hideModal());
-
-    console.log(type, name, ingredients, directions);
   };
   return (
     <div className={classes["form-container"]}>

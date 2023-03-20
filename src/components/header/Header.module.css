@@ -1,4 +1,6 @@
 .header-container {
+  position: relative;
+
   width: 100vw;
   height: 8vh;
 }
@@ -10,10 +12,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.header-container nav {
+.nav-menu {
   width: auto;
 }
-.header-container ul li {
+.hamburger-menu {
+  display: none;
+}
+.nav-menu ul li {
   font-family: "PT Serif", serif;
 
   font-family: "Roboto Flex", sans-serif;
@@ -42,8 +47,96 @@
   font-size: 1.7vh;
   font-weight: 600;
 }
+.hamburger-btn {
+  display: none;
+}
+.hamburger-btn:hover {
+  border: 0;
+  background-color: transparent;
+}
 @media (max-width: 1000px) {
-  .header-container nav {
+  .nav-menu {
     display: none;
+  }
+  .logout-button {
+    display: none;
+  }
+  .hamburger-btn {
+    display: block;
+    position: absolute;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    right: 3vw;
+    top: 1vh;
+    height: auto;
+    width: auto;
+  }
+  .hamburger-btn img {
+    height: 6vh;
+    width: 10vw;
+  }
+  .hamburger-menu {
+    display: flex;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    width: 50vw;
+    right: 0;
+    font-size: 2.7vh;
+    height: 100vh;
+    z-index: 3;
+    box-shadow: -5px 0px 4px rgba(0, 0, 0, 0.2);
+    animation: hamburger 0.6s;
+  }
+
+  @keyframes hamburger {
+    from {
+      width: 0vw;
+    }
+    to {
+      width: 50vw;
+    }
+  }
+  .hamburger-menu ul {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .hamburger-menu li {
+    padding: 0.7vh 2vw;
+    display: flex;
+    text-align: right;
+  }
+  .hamburger-menu li a {
+    width: 100%;
+  }
+  .hamburger-menu li:nth-child(1) {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.39);
+  }
+
+  .hamburger-logo-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+  }
+  .hamburger-logo-box img {
+    height: 2.5vh;
+  }
+  .header-container .link:hover {
+    color: #f3066a;
+  }
+  .hamburger-logout-btn {
+    margin-top: 1vh;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.39);
+  }
+  .hamburger-logout-btn a {
+    text-decoration: none;
+    color: #f3066a;
   }
 }

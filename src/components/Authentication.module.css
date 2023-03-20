@@ -24,7 +24,7 @@
   font-size: 2vh;
 }
 .form input {
-  width: 25vw;
+  width: auto;
   height: 4vh;
 }
 .form button {

@@ -4,6 +4,7 @@ const tasksInitialState = {
   todayTasks: [],
   date: "",
   tasksAreUpdated: false,
+  userName: "",
 };
 const tasks = createSlice({
   name: "tasks",
@@ -19,7 +20,7 @@ const tasks = createSlice({
       }
     },
     // updateTask(state,action){
-    setTasksAreUpdated(state, action) {
+    setTasksAreUpdated(state) {
       state.tasksAreUpdated = !state.tasksAreUpdated;
     },
     setDate(state, action) {
@@ -28,6 +29,9 @@ const tasks = createSlice({
     removeTask(state, action) {
       const id = action.payload;
       state.todayTasks = state.todayTasks.filter((item) => item.id !== id);
+    },
+    setUserName(state, action) {
+      state.userName = action.payload;
     },
   },
 });

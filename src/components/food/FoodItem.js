@@ -1,5 +1,4 @@
 import classes from "./FoodItem.module.css";
-import breakfast from "../../assets/breakfast.png";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import FoodForm from "./FoodForm";
@@ -10,15 +9,14 @@ const FoodItem = (props) => {
   };
 
   const mealType = useSelector((state) => state.foodReducer[props.type]);
-  console.log(mealType);
+
   const [update, setUpdate] = useState(false);
 
   const updateHandler = () => {
     setUpdate(!update);
   };
-  const ingredients = mealType != undefined ? mealType.ingredients : [];
-
-  console.log(ingredients);
+  const ingredients = mealType !== undefined ? mealType.ingredients : null;
+  const ingredietsToArray = ingredients.split(",");
   return (
     <>
       <div className={classes["meal-box"]}>
@@ -38,19 +36,11 @@ const FoodItem = (props) => {
             </span>
             {!directionsAreShown && (
               <ul>
-                {ingredients != null &&
-                  ingredients
-                    .split(",")
-                    .map(
-                      (ingredients) =>
-                        `${
-                          ingredients !== "" ? (
-                            <li key={ingredients}>{ingredients}</li>
-                          ) : (
-                            ""
-                          )
-                        }`
-                    )}
+                {ingredietsToArray[0] === ""
+                  ? ""
+                  : ingredietsToArray.map((ingredient) => (
+                      <li key={ingredients}>{ingredient}</li>
+                    ))}
               </ul>
             )}
             {directionsAreShown && (

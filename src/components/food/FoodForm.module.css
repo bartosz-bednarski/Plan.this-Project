@@ -35,10 +35,11 @@
   color: black;
   border: 2px solid #f3066a;
   border-radius: 50%;
-  margin-top: 5vh;
+  margin: 5vh 0 1vh 0;
 }
 .meal-chose-box button img {
-  height: 10vh;
+  height: 6vw;
+  width: 6vw;
 }
 .meal-chose-box a {
   position: absolute;
@@ -74,8 +75,19 @@ input {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
-  font-size: 1.5vw;
+  font-size: 1.5vh;
   line-height: 38px;
-
   color: #000000;
+}
+@media (max-width: 1000px) {
+  .food-form {
+    width: auto;
+  }
+  .meal-chose-box {
+    height: auto;
+  }
+  .meal-chose-box button img {
+    height: 18vw;
+    width: 18vw;
+  }
 }

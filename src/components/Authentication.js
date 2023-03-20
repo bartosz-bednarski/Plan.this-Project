@@ -1,8 +1,8 @@
 import classes from "./Authentication.module.css";
-import { Form, Link, useActionData, useSearchParams } from "react-router-dom";
-import { useEffect } from "react";
+import { Form, Link, useSearchParams } from "react-router-dom";
+import { useActionData } from "react-router-dom";
 const Authentication = () => {
-  // const error = useActionData();
+  const error = useActionData();
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get("mode") === "login";
 
@@ -18,10 +18,18 @@ const Authentication = () => {
             id="password"
             type="password"
             name="password"
+            minLength={6}
             autoComplete="on"
             required
           />
-          {/* {error && <p>{error && error}</p>} */}
+          {!isLogin && (
+            <>
+              <label htmlFor="name">Name</label>
+              <input id="name" type="name" name="name" required />
+            </>
+          )}
+
+          {error && <p>{error && error}</p>}
 
           <Link
             to={`?mode=${isLogin ? "register" : "login"}`}
