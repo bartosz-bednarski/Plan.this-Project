@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createHashRouter,
+} from "react-router-dom";
 import "./App.css";
 import ErrorPage from "./pages/Error";
 import FoodPage from "./pages/Food";
@@ -15,9 +19,9 @@ import AuthenticationPage, {
 import { checkUserAuthentication, getUserStatus } from "./Firebase/authUser";
 import HomePage from "./pages/Home";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: "/",
+    path: "/*",
     element: <RootLayout />,
     loader: getUserStatus,
     errorElement: <ErrorPage />,
