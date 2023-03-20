@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Plan.this-Project/static/css/main.b48d9b59.css",
+    "main.js": "/Plan.this-Project/static/js/main.79cdfe29.js",
+    "static/media/hero-1.png": "/Plan.this-Project/static/media/hero-1.42b3acbe15d8a61de95b.png",
+    "static/media/dinner.png": "/Plan.this-Project/static/media/dinner.00f8f6013233b10dbeee.png",
+    "static/media/breakfast.png": "/Plan.this-Project/static/media/breakfast.6b1b718a8bcd56a93ec0.png",
+    "static/media/supper.png": "/Plan.this-Project/static/media/supper.8724eb4f699f73ff4975.png",
+    "static/media/cloudy_day.png": "/Plan.this-Project/static/media/cloudy_day.5aff0f182f2efb321ce3.png",
+    "static/media/keyboard-btn.svg": "/Plan.this-Project/static/media/keyboard-btn.fd95781a1968694d3d8da45103583d03.svg",
+    "static/media/menu-btn.svg": "/Plan.this-Project/static/media/menu-btn.53204252d13d023e8c74f24fd42d700a.svg",
+    "static/media/extra.svg": "/Plan.this-Project/static/media/extra.85fc2dfaca28b90c888990ff606145f1.svg",
+    "static/media/x-btn.svg": "/Plan.this-Project/static/media/x-btn.17e1a49b700859651f6b9d2bae0a495b.svg",
+    "index.html": "/Plan.this-Project/index.html",
+    "static/media/plus-btn.svg": "/Plan.this-Project/static/media/plus-btn.d9e2a3b05dc2a4873c049f1a755312fa.svg",
+    "static/media/tickActive.svg": "/Plan.this-Project/static/media/tickActive.a144609c22678e126f55710f2163a55b.svg",
+    "static/media/tickDisabled.svg": "/Plan.this-Project/static/media/tickDisabled.b6eda7cfb8fabfa76cbaf8cabe8654ce.svg",
+    "static/media/hamburger-menu.svg": "/Plan.this-Project/static/media/hamburger-menu.42dd4e28d214278e340819d83d891f0e.svg",
+    "main.b48d9b59.css.map": "/Plan.this-Project/static/css/main.b48d9b59.css.map",
+    "main.79cdfe29.js.map": "/Plan.this-Project/static/js/main.79cdfe29.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b48d9b59.css",
+    "static/js/main.79cdfe29.js"
+  ]
+}
