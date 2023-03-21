@@ -14,7 +14,7 @@ const Home = () => {
           <span className={classes["logo"]}>Plan.This</span>
           <p>
             Many people struggle with lack of time. By <br />
-            organizing your day You can save it and get
+            organizing your day You can save it and get it
             <br /> more of your live.
             <br />
             <br /> Soo are you in ?
