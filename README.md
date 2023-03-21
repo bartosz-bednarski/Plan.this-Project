@@ -52,7 +52,7 @@ Plan.this-Project is a website build with React to set up daily tasks and plan y
 <img src="/readme_images/04.PNG" alt="Logo" width="100%" height="100%">
 
 ## Mobile view
-<img src="/readme_images/01_mobile.png" alt="Logo" width="33%" height="auto"> <img src="/readme_images/02_mobile.png" alt="Logo" width="33%" height="auto"> <img src="/readme_images/03_mobile.png" alt="Logo" width="33%" height="auto">      
+<img src="/readme_images/01_mobile.png" alt="Logo" width="30%" height="auto"> <img src="/readme_images/02_mobile.png" alt="Logo" width="30%" height="auto"> <img src="/readme_images/03_mobile.png" alt="Logo" width="30%" height="auto">      
 
 
 <!-- CONTACT -->
