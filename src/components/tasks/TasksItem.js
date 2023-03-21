@@ -39,7 +39,6 @@ const TasksItem = (props) => {
   const descriptionHandler = (event) => {
     setDescription(event.target.value);
   };
-  console.log(hours, minutes);
   const removeTask = () => {
     tickClickedHandler();
     setTimeout(() => {

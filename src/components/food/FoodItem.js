@@ -1,8 +1,10 @@
 import classes from "./FoodItem.module.css";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FoodForm from "./FoodForm";
+import { foodActions } from "../store/food-slice";
 const FoodItem = (props) => {
+  const dispatch = useDispatch();
   const [directionsAreShown, setDirectionsAreShown] = useState(false);
   const directionsHandler = () => {
     setDirectionsAreShown(!directionsAreShown);
@@ -15,7 +17,7 @@ const FoodItem = (props) => {
   const updateHandler = () => {
     setUpdate(!update);
   };
-  const ingredients = mealType !== undefined ? mealType.ingredients : null;
+  const ingredients = mealType.ingredients;
   const ingredietsToArray = ingredients.split(",");
   return (
     <>
@@ -39,7 +41,7 @@ const FoodItem = (props) => {
                 {ingredietsToArray[0] === ""
                   ? ""
                   : ingredietsToArray.map((ingredient) => (
-                      <li key={ingredients}>{ingredient}</li>
+                      <li key={Math.random()}>{ingredient}</li>
                     ))}
               </ul>
             )}
@@ -50,7 +52,7 @@ const FoodItem = (props) => {
         )}
         {update && (
           <FoodForm
-            action={ingredients != null ? "update" : "add"}
+            action={mealType.ingredients === "" ? "add" : "update"}
             type={props.type}
             updateHandler={updateHandler}
           />

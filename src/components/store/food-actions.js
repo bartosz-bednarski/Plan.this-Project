@@ -20,6 +20,7 @@ export const fetchMealsData = (date) => {
 };
 
 export const sendNewMeal = (newMeal) => {
+  console.log(newMeal);
   return async (dispatch) => {
     const sendRequest = async () => {
       const userId = getUserId();

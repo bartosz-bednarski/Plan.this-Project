@@ -67,18 +67,19 @@ const FoodForm = (props) => {
     <>
       {!chooseBoxIsDisplayed && (
         <div className={classes["meal-chose-box"]}>
-          <NavLink to="menu">
-            <button
-              onClick={() =>
-                dispatch(
-                  foodActions.setDisplayMenu({
-                    type: props.type,
-                    action: props.action,
-                    id: mealType.id,
-                  })
-                )
-              }
-            >
+          <NavLink
+            to="menu"
+            onClick={() =>
+              dispatch(
+                foodActions.setDisplayMenu({
+                  type: props.type,
+                  action: props.action,
+                  id: mealType.id,
+                })
+              )
+            }
+          >
+            <button>
               <img src={menuBtn} />
               Menu
             </button>
