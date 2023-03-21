@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Plan.this-Project/static/css/main.b48d9b59.css",
-    "main.js": "/Plan.this-Project/static/js/main.119afdc1.js",
+    "main.js": "/Plan.this-Project/static/js/main.2567a5a1.js",
     "static/media/hero-1.png": "/Plan.this-Project/static/media/hero-1.42b3acbe15d8a61de95b.png",
     "static/media/dinner.png": "/Plan.this-Project/static/media/dinner.00f8f6013233b10dbeee.png",
     "static/media/breakfast.png": "/Plan.this-Project/static/media/breakfast.6b1b718a8bcd56a93ec0.png",
@@ -17,10 +17,10 @@
     "static/media/tickDisabled.svg": "/Plan.this-Project/static/media/tickDisabled.b6eda7cfb8fabfa76cbaf8cabe8654ce.svg",
     "static/media/hamburger-menu.svg": "/Plan.this-Project/static/media/hamburger-menu.42dd4e28d214278e340819d83d891f0e.svg",
     "main.b48d9b59.css.map": "/Plan.this-Project/static/css/main.b48d9b59.css.map",
-    "main.119afdc1.js.map": "/Plan.this-Project/static/js/main.119afdc1.js.map"
+    "main.2567a5a1.js.map": "/Plan.this-Project/static/js/main.2567a5a1.js.map"
   },
   "entrypoints": [
     "static/css/main.b48d9b59.css",
-    "static/js/main.119afdc1.js"
+    "static/js/main.2567a5a1.js"
   ]
 }
