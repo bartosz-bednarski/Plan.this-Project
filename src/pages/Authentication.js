@@ -97,7 +97,7 @@ export async function action({ request }) {
     if (loginAction) {
       return loginAction;
     } else {
-      return redirect("/auth/home");
+      return redirect("/auth/tasks");
     }
   }
 }
