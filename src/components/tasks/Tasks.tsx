@@ -4,18 +4,23 @@ import CalendarComponent from "../UI/Calendar";
 import Sticker from "../UI/Sticker";
 import cloudyDay from "../../assets/cloudy_day.png";
 import { useDispatch, useSelector } from "react-redux";
+import { RootState, useAppDispatch } from "../store";
 import { fetchTaskData } from "../store/task-actions";
 import { useEffect } from "react";
 
-const Tasks = ({ weatherData }) => {
-  const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.tasksReducer.todayTasks);
-  const date = useSelector((state) => state.tasksReducer.date);
-  const dateReducer = useSelector((state) => state.dateReducer);
-  const tasksAreUpdated = useSelector(
-    (state) => state.tasksReducer.tasksAreUpdated
+const Tasks: React.FC = ({ weatherData }) => {
+  const dispatch = useAppDispatch();
+  const tasks = useSelector(
+    (state: RootState) => state.tasksReducer.todayTasks
   );
-  const userName = useSelector((state) => state.tasksReducer.userName);
+  const date = useSelector((state: RootState) => state.tasksReducer.date);
+  const dateReducer = useSelector((state: RootState) => state.dateReducer);
+  const tasksAreUpdated = useSelector(
+    (state: RootState) => state.tasksReducer.tasksAreUpdated
+  );
+  const userName = useSelector(
+    (state: RootState) => state.tasksReducer.userName
+  );
 
   useEffect(() => {
     dispatch(fetchTaskData(date));

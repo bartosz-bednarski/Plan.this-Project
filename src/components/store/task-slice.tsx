@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+interface TasksInitialState {
+  todayTasks: any[];
+  date: string;
+  tasksAreUpdated: boolean;
+  userName: string;
+}
 
-const tasksInitialState = {
+const tasksInitialState: TasksInitialState = {
   todayTasks: [],
   date: "",
   tasksAreUpdated: false,

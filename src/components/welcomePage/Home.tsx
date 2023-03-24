@@ -2,7 +2,7 @@ import Header from "./Header";
 import classes from "./Home.module.css";
 import heroImg from "../../assets/hero-1.png";
 import { NavLink } from "react-router-dom";
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <div className={classes["home-container"]}>
       <Header />

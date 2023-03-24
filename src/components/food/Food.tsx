@@ -9,16 +9,19 @@ import breakfastImg from "../../assets/breakfast.png";
 import dinnerImg from "../../assets/dinner.png";
 import supperImg from "../../assets/supper.png";
 import extraImg from "../../assets/extra.svg";
-const Food = () => {
-  const dispatch = useDispatch();
-  const date = useSelector((state) => state.foodReducer.date);
-  const dateReducer = useSelector((state) => state.dateReducer);
-  const foodIsUpdated = useSelector((state) => state.foodReducer.foodIsUpdated);
+import { RootState, useAppDispatch } from "../store";
+const Food: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const date = useSelector((state: RootState) => state.foodReducer.date);
+  const dateReducer = useSelector((state: RootState) => state.dateReducer);
+  const foodIsUpdated = useSelector(
+    (state: RootState) => state.foodReducer.foodIsUpdated
+  );
   useEffect(() => {
     dispatch(fetchMealsData(date));
   }, [date, foodIsUpdated]);
 
-  const [calendarIsShown, setCalendarIsShown] = useState(false);
+  const [calendarIsShown, setCalendarIsShown] = useState<boolean>(false);
   const calendarHandler = () => {
     setCalendarIsShown(!calendarIsShown);
   };

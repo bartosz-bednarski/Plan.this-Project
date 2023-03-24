@@ -1,20 +1,22 @@
 import classes from "./TasksItem.module.css";
-import { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import TasksForm from "./TasksForm";
 import { useDispatch, useSelector } from "react-redux";
 import plusBtn from "../../assets/plus-btn.svg";
 import tickActiveBtn from "../../assets/tickActive.svg";
 import tickDisabledBtn from "../../assets/tickDisabled.svg";
 import { deleteTask } from "../store/task-actions";
-const TasksItem = (props) => {
-  const dispatch = useDispatch();
-  const date = useSelector((state) => state.tasksReducer.date);
-  const [hours, setHours] = useState(props.time.slice(0, 2));
-  const [minutes, setMinutes] = useState(props.time.slice(3));
-  const [description, setDescription] = useState(props.description);
-  const [showForm, setShowForm] = useState(false);
-  const [tickActive, setTickActive] = useState(false);
-  const [tickClicked, setTickClicked] = useState(false);
+import { RootState, useAppDispatch } from "../store";
+import { TaskItem } from "../../types/tasks";
+const TasksItem: React.FC<TaskItem> = (props) => {
+  const dispatch = useAppDispatch();
+  const date = useSelector((state: RootState) => state.tasksReducer.date);
+  const [hours, setHours] = useState<string>(props.time.slice(0, 2));
+  const [minutes, setMinutes] = useState<string>(props.time.slice(3));
+  const [description, setDescription] = useState<string>(props.description);
+  const [showForm, setShowForm] = useState<boolean>(false);
+  const [tickActive, setTickActive] = useState<boolean>(false);
+  const [tickClicked, setTickClicked] = useState<boolean>(false);
   const tickActiveHandler = () => {
     setTickActive(true);
   };
@@ -24,7 +26,7 @@ const TasksItem = (props) => {
   const tickClickedHandler = () => {
     setTickClicked(true);
   };
-  const hoursHandler = (event) => {
+  const hoursHandler = (event: React.FocusEvent<HTMLInputElement>) => {
     setHours(event.target.value);
   };
   const resetInputs = () => {
@@ -32,11 +34,11 @@ const TasksItem = (props) => {
     setMinutes("");
     setDescription("");
   };
-  const minutesHandler = (event) => {
+  const minutesHandler = (event: React.FocusEvent<HTMLInputElement>) => {
     setMinutes(event.target.value);
   };
 
-  const descriptionHandler = (event) => {
+  const descriptionHandler = (event: React.FocusEvent<HTMLInputElement>) => {
     setDescription(event.target.value);
   };
   const removeTask = () => {
@@ -93,6 +95,7 @@ const TasksItem = (props) => {
                 descriptionHandler={descriptionHandler}
                 type="Update"
                 hideFormHandler={hideFormHandler}
+                resetInputs={resetInputs}
               />
             </>
           )}

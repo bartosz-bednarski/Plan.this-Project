@@ -1,10 +1,13 @@
 import classes from "./TasksForm.module.css";
 import { updateTask, sendNewTask } from "../store/task-actions";
 import { useDispatch, useSelector } from "react-redux";
-const TasksForm = (props) => {
-  const dispatch = useDispatch();
-  const date = useSelector((state) => state.tasksReducer.date);
-  const onSubmit = (event) => {
+import { RootState, useAppDispatch } from "../store";
+import React from "react";
+import { TaskForm } from "../../types/tasks";
+const TasksForm: React.FC<TaskForm> = (props) => {
+  const dispatch = useAppDispatch();
+  const date = useSelector((state: RootState) => state.tasksReducer.date);
+  const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log("submit");
     if (props.type === "Update") {

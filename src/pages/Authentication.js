@@ -1,4 +1,4 @@
-import Authentication from "../components/Authentication";
+import Authentication from "../components/Authentication.tsx";
 import app from "../Firebase/firebase";
 import {
   createUserWithEmailAndPassword,

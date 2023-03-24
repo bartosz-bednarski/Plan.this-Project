@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const foodInitialState = {
+import { Meal } from "../../types/food";
+import { FoodInitialState } from "../../types/food";
+const foodInitialState: FoodInitialState = {
   meals: [],
   date: "",
   todayMeals: [],

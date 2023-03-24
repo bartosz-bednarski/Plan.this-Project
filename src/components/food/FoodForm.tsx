@@ -1,15 +1,23 @@
 import classes from "./FoodForm.module.css";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import menuBtn from "../../assets/menu-btn.svg";
 import keyboardBtn from "../../assets/keyboard-btn.svg";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendNewMeal, updateMeal } from "../store/food-actions";
 import { foodActions } from "../store/food-slice";
-const FoodForm = (props) => {
-  const dispatch = useDispatch();
-  const foodReducer = useSelector((state) => state.foodReducer);
-  const mealType = useSelector((state) => state.foodReducer[props.type]);
+import { RootState, useAppDispatch } from "../store";
+const FoodForm: React.FC<{
+  action: string;
+  type: string;
+  updateHandler: () => void;
+}> = (props) => {
+  const dispatch = useAppDispatch();
+  const foodReducer = useSelector((state: RootState) => state.foodReducer);
+  const mealType = useSelector(
+    (state: RootState) =>
+      state.foodReducer[props.type as keyof typeof foodReducer]
+  );
   const [chooseBoxIsDisplayed, setChooseBoxIsDisplayed] = useState(false);
   const [formIsDisplayed, setFormIsDisplayed] = useState(false);
   const chooseBoxToogleHandler = () => {
@@ -19,24 +27,30 @@ const FoodForm = (props) => {
     setFormIsDisplayed(true);
   };
   //FORM
-  const [mealName, setMealName] = useState(foodReducer[props.type].name);
-  const [mealIngredients, setMealIngredients] = useState(
-    foodReducer[props.type].ingredients
+  const [mealName, setMealName] = useState(
+    foodReducer[props.type as keyof typeof foodReducer].name
   );
-  const [mealDirections, setMealDirections] = useState(
-    foodReducer[props.type].directions
+  const [mealIngredients, setMealIngredients] = useState<string>(
+    foodReducer[props.type as keyof typeof foodReducer].ingredients
+  );
+  const [mealDirections, setMealDirections] = useState<string>(
+    foodReducer[props.type as keyof typeof foodReducer].directions
   );
 
-  const mealNameHandler = (event) => {
+  const mealNameHandler = (event: React.FocusEvent<HTMLInputElement>) => {
     setMealName(event.target.value);
   };
-  const mealIngredientsHandler = (event) => {
+  const mealIngredientsHandler = (
+    event: React.FocusEvent<HTMLTextAreaElement>
+  ) => {
     setMealIngredients(event.target.value);
   };
-  const mealDirectionsHandler = (event) => {
+  const mealDirectionsHandler = (
+    event: React.FocusEvent<HTMLTextAreaElement>
+  ) => {
     setMealDirections(event.target.value);
   };
-  const onSubmit = (event) => {
+  const onSubmit = (event: FormEvent) => {
     event.preventDefault();
     if (props.action === "add") {
       dispatch(
@@ -115,14 +129,12 @@ const FoodForm = (props) => {
               <textarea
                 id="ingredients"
                 onChange={mealIngredientsHandler}
-                type="text"
                 required
                 value={mealIngredients}
               ></textarea>
               <label className={classes["meal-ingredients"]}>DIRECTIONS</label>
 
               <textarea
-                type="text"
                 required
                 value={mealDirections}
                 onChange={mealDirectionsHandler}

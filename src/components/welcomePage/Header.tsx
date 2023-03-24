@@ -1,7 +1,7 @@
 import classes from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 import { getUserId, signOutUser } from "../../Firebase/authUser";
-const Header = () => {
+const Header: React.FC = () => {
   const userId = getUserId();
 
   return (
