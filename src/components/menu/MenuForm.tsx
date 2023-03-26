@@ -1,31 +1,35 @@
 import { useState } from "react";
 import classes from "./MenuForm.module.css";
 import { sendNewMenuMeal, updateMenuMeal } from "../store/menu-actions";
-import { useDispatch } from "react-redux";
 import { menuActions } from "../store/menu-slice";
 import { useSelector } from "react-redux";
+import { RootState, useAppDispatch } from "../store";
 const MenuForm = () => {
-  const dispatch = useDispatch();
-  const actionType = useSelector((state) => state.menuReducer.actionType);
-  const mealToUpdate = useSelector((state) => state.menuReducer.mealToUpdate);
+  const dispatch = useAppDispatch();
+  const actionType = useSelector<RootState>(
+    (state) => state.menuReducer.actionType
+  );
+  const mealToUpdate = useSelector<RootState>(
+    (state) => state.menuReducer.mealToUpdate
+  );
   const [type, setType] = useState(mealToUpdate.type);
   const [name, setName] = useState(mealToUpdate.name);
   const [ingredients, setIngredients] = useState(mealToUpdate.ingredients);
   const [directions, setDirections] = useState(mealToUpdate.directions);
   const [typeWarning, setTypeWarning] = useState("type-input");
-  const typeHandler = (event) => {
+  const typeHandler = (event: React.FocusEvent<HTMLInputElement>) => {
     setType(event.target.value);
   };
-  const nameHandler = (event) => {
+  const nameHandler = (event: React.FocusEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
-  const ingredientsHandler = (event) => {
+  const ingredientsHandler = (event: React.FocusEvent<HTMLTextAreaElement>) => {
     setIngredients(event.target.value);
   };
-  const directionsHandler = (event) => {
+  const directionsHandler = (event: React.FocusEvent<HTMLTextAreaElement>) => {
     setDirections(event.target.value);
   };
-  const onSubmit = (event) => {
+  const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (
       type !== "Breakfast" &&

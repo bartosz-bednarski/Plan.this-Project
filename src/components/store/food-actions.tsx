@@ -1,7 +1,9 @@
 import { foodActions } from "./food-slice";
 import { getUserId } from "../../Firebase/authUser";
-export const fetchMealsData = (date) => {
-  return async (dispatch) => {
+import { AppDispatch } from ".";
+import { SendUpdateMeal } from "../../types/food";
+export const fetchMealsData = (date: string) => {
+  return async (dispatch: AppDispatch) => {
     const fetchData = async () => {
       const userId = getUserId();
       const response = await fetch(
@@ -19,9 +21,9 @@ export const fetchMealsData = (date) => {
   };
 };
 
-export const sendNewMeal = (newMeal) => {
+export const sendNewMeal = (newMeal: SendUpdateMeal) => {
   console.log(newMeal);
-  return async (dispatch) => {
+  return async (dispatch: AppDispatch) => {
     const sendRequest = async () => {
       const userId = getUserId();
       const response = await fetch(
@@ -48,8 +50,8 @@ export const sendNewMeal = (newMeal) => {
     }
   };
 };
-export const updateMeal = (updatedMeal) => {
-  return async (dispatch) => {
+export const updateMeal = (updatedMeal: SendUpdateMeal) => {
+  return async (dispatch: AppDispatch) => {
     const sendRequest = async () => {
       const userId = getUserId();
       const response = await fetch(

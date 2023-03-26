@@ -7,23 +7,34 @@ import extraImg from "../../assets/extra.svg";
 import Modal from "../UI/Modal";
 import MenuForm from "./MenuForm";
 import { menuActions } from "../store/menu-slice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchMenuData } from "../store/menu-actions";
 import MenuItem from "./MenuItem";
+import { RootState, useAppDispatch } from "../store";
 const Menu = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const menuIsUpdated = useSelector((state) => state.menuReducer.menuIsUpdated);
+  const menuIsUpdated = useSelector(
+    (state: RootState) => state.menuReducer.menuIsUpdated
+  );
   useEffect(() => {
     dispatch(fetchMenuData());
   }, [menuIsUpdated]);
-  const breakfast = useSelector((state) => state.menuReducer.menuBreakfast);
-  const dinner = useSelector((state) => state.menuReducer.menuDinner);
-  const supper = useSelector((state) => state.menuReducer.menuSupper);
-  const extra = useSelector((state) => state.menuReducer.menuExtra);
+  const breakfast = useSelector(
+    (state: RootState) => state.menuReducer.menuBreakfast
+  );
+  const dinner = useSelector(
+    (state: RootState) => state.menuReducer.menuDinner
+  );
+  const supper = useSelector(
+    (state: RootState) => state.menuReducer.menuSupper
+  );
+  const extra = useSelector((state: RootState) => state.menuReducer.menuExtra);
 
-  const showModal = useSelector((state) => state.menuReducer.showModal);
+  const showModal = useSelector(
+    (state: RootState) => state.menuReducer.showModal
+  );
 
   return (
     <>

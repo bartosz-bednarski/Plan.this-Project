@@ -1,7 +1,9 @@
 import { tasksActions } from "./task-slice";
 import { getUserId } from "../../Firebase/authUser";
-export const fetchTaskData = (date) => {
-  return async (dispatch) => {
+import { AppDispatch } from ".";
+import { SendUpdateTask } from "../../types/tasks";
+export const fetchTaskData = (date: string) => {
+  return async (dispatch: AppDispatch) => {
     const fetchData = async () => {
       const userId = getUserId();
       const response = await fetch(
@@ -26,16 +28,18 @@ export const fetchTaskData = (date) => {
     };
     try {
       const userData = await fetchUserBio();
-      const userName = Object.values(userData)[0].name;
-      dispatch(tasksActions.setUserName(userName));
+      if (userData != null) {
+        const userName = Object.values(userData)[0].name;
+        dispatch(tasksActions.setUserName(userName));
+      }
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-export const sendNewTask = (newTask) => {
-  return async (dispatch) => {
+export const sendNewTask = (newTask: SendUpdateTask) => {
+  return async (dispatch: AppDispatch) => {
     const sendRequest = async () => {
       const userId = getUserId();
       const response = await fetch(
@@ -61,8 +65,8 @@ export const sendNewTask = (newTask) => {
   };
 };
 
-export const updateTask = (task) => {
-  return async (dispatch) => {
+export const updateTask = (task: SendUpdateTask) => {
+  return async (dispatch: AppDispatch) => {
     const sendRequest = async () => {
       const userId = getUserId();
       const response = await fetch(
@@ -89,8 +93,8 @@ export const updateTask = (task) => {
   };
 };
 
-export const deleteTask = (task) => {
-  return async (dispatch) => {
+export const deleteTask = (task: { date: string; id: string | undefined }) => {
+  return async (dispatch: AppDispatch) => {
     const sendRequest = async () => {
       const userId = getUserId();
       const response = await fetch(

@@ -42,7 +42,9 @@ const Authentication: React.FC = () => {
                 : "Already have an account ? Log in."}{" "}
             </Link>
 
-            <button>{isLogin ? "Log in" : "Register"}</button>
+            <button className={classes["login-register-btn"]}>
+              {isLogin ? "Log in" : "Register"}
+            </button>
           </>
         </Form>
       </div>

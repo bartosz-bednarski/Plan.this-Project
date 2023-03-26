@@ -27,9 +27,11 @@
   width: auto;
   height: 4vh;
 }
-.form button {
+.form .login-register-btn {
   margin-top: 2vh;
+  padding: 0.7vh 2vw;
 }
+
 .link {
   text-align: center;
   margin-top: 1vh;

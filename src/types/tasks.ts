@@ -18,5 +18,9 @@ export type TaskForm = {
   hideFormHandler: () => void;
   resetInputs: () => void;
 };
-
-
+export type SendUpdateTask = {
+  time: string;
+  description: string;
+  date: string;
+  id?: string | null;
+};

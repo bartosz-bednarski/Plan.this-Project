@@ -36,7 +36,6 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  is
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.link
                   }
@@ -48,7 +47,6 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  is
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.link
                   }
@@ -60,7 +58,6 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  is
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.link
                   }
@@ -72,7 +69,6 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  is
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.link
                   }
@@ -84,7 +80,6 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  is
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.link
                   }
@@ -107,7 +102,6 @@ const Header = () => {
           <ul>
             <li>
               <NavLink
-                is
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }
@@ -118,7 +112,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                is
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }
@@ -129,7 +122,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                is
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }
@@ -140,7 +132,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                is
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }
@@ -151,7 +142,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                is
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.link
                 }

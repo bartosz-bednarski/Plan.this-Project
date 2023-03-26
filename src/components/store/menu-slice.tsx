@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-const menuInitialState = {
+
+import { MenuInitialState } from "../../types/menu";
+const menuInitialState: MenuInitialState = {
   menuMeals: [],
   menuBreakfast: [],
   menuDinner: [],
@@ -61,7 +63,7 @@ const menu = createSlice({
       state.showModal = false;
       state.mealToUpdate = {};
     },
-    updateMenu(state, action) {
+    updateMenu(state) {
       state.menuIsUpdated = !state.menuIsUpdated;
       state.mealToUpdate = {};
     },
