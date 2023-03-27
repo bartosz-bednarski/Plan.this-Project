@@ -1,16 +1,22 @@
 import classes from "./MenuItem.module.css";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { deleteMenuMeal } from "../store/menu-actions";
 import { menuActions } from "../store/menu-slice";
 import { foodActions } from "../store/food-slice";
 import { updateMeal, sendNewMeal } from "../store/food-actions";
 import { NavLink } from "react-router-dom";
-const MenuItem = (props) => {
-  const dispatch = useDispatch();
+import { useAppDispatch } from "../store";
+import { useAppSelector } from "../store";
+const MenuItem: React.FC<{
+  key: string;
+  id: string;
+  img: any;
+  data: any;
+}> = (props) => {
+  const dispatch = useAppDispatch();
   const [showDetails, setShowDetails] = useState(false);
   //FOOD ITEM
-  const foodReducer = useSelector((state) => state.foodReducer);
+  const foodReducer = useAppSelector((state) => state.foodReducer);
   const displayAddBtn = foodReducer.displayMenu.value;
   const date = foodReducer.date;
   const addDailyMeal = () => {
@@ -37,7 +43,13 @@ const MenuItem = (props) => {
         })
       );
     }
-    dispatch(foodActions.setDisplayMenu());
+    dispatch(
+      foodActions.setDisplayMenu({
+        type: "RESET_DISPLAY",
+        action: "RESET_DISPLAY",
+        id: "",
+      })
+    );
   };
   // FOOD ITEM
   const detailsHandler = () => {
@@ -53,7 +65,7 @@ const MenuItem = (props) => {
     );
   };
 
-  const ingredients = props.data.ingredients.split(",");
+  const ingredients: [] = props.data.ingredients.split(",");
   return (
     <li
       className={`${classes["meal-item"]} ${

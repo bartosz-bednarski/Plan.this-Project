@@ -1,5 +1,5 @@
 import Food from "../components/food/Food";
-const FoodPage = () => {
+const FoodPage: React.FC = () => {
   return <Food />;
 };
 

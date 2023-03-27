@@ -1,16 +1,16 @@
 import classes from "./TasksItem.module.css";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { useState } from "react";
 import TasksForm from "./TasksForm";
-import { useDispatch, useSelector } from "react-redux";
 import plusBtn from "../../assets/plus-btn.svg";
 import tickActiveBtn from "../../assets/tickActive.svg";
 import tickDisabledBtn from "../../assets/tickDisabled.svg";
 import { deleteTask } from "../store/task-actions";
-import { RootState, useAppDispatch } from "../store";
+import { useAppDispatch } from "../store";
 import { TaskItem } from "../../types/tasks";
+import { useAppSelector } from "../store";
 const TasksItem: React.FC<TaskItem> = (props) => {
   const dispatch = useAppDispatch();
-  const date = useSelector((state: RootState) => state.tasksReducer.date);
+  const date = useAppSelector((state) => state.tasksReducer.date);
   const [hours, setHours] = useState<string>(props.time.slice(0, 2));
   const [minutes, setMinutes] = useState<string>(props.time.slice(3));
   const [description, setDescription] = useState<string>(props.description);

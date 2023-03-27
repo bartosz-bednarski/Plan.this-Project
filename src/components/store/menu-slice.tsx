@@ -10,7 +10,13 @@ const menuInitialState: MenuInitialState = {
   actionType: "",
   showModal: false,
   menuIsUpdated: true,
-  mealToUpdate: {},
+  mealToUpdate: {
+    id: "",
+    type: "",
+    name: "",
+    ingredients: "",
+    directions: "",
+  },
 };
 
 const menu = createSlice({
@@ -61,11 +67,23 @@ const menu = createSlice({
     },
     hideModal(state) {
       state.showModal = false;
-      state.mealToUpdate = {};
+      state.mealToUpdate = {
+        id: "",
+        type: "",
+        name: "",
+        ingredients: "",
+        directions: "",
+      };
     },
     updateMenu(state) {
       state.menuIsUpdated = !state.menuIsUpdated;
-      state.mealToUpdate = {};
+      state.mealToUpdate = {
+        id: "",
+        type: "",
+        name: "",
+        ingredients: "",
+        directions: "",
+      };
     },
   },
 });

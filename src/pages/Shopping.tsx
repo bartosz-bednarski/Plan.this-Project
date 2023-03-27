@@ -1,6 +1,6 @@
 import Build from "../components/inBuild/Build";
-const SportPage = () => {
+const ShoppingPage: React.FC = () => {
   return <Build />;
 };
 
-export default SportPage;
+export default ShoppingPage;

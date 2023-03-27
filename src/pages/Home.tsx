@@ -1,6 +1,6 @@
 import Build from "../components/inBuild/Build";
-const ShoppingPage = () => {
+const HomePage: React.FC = () => {
   return <Build />;
 };
 
-export default ShoppingPage;
+export default HomePage;

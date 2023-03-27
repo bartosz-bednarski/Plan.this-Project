@@ -5,10 +5,10 @@ const foodInitialState: FoodInitialState = {
   meals: [],
   date: "",
   todayMeals: [],
-  Breakfast: { name: "", ingredients: "", directions: "" },
-  Dinner: { name: "", ingredients: "", directions: "" },
-  Supper: { name: "", ingredients: "", directions: "" },
-  Extra: { name: "", ingredients: "", directions: "" },
+  Breakfast: { name: "", ingredients: "", directions: "" } as const,
+  Dinner: { name: "", ingredients: "", directions: "" } as const,
+  Supper: { name: "", ingredients: "", directions: "" } as const,
+  Extra: { name: "", ingredients: "", directions: "" } as const,
   foodIsUpdated: true,
   displayMenu: { value: false, type: "", action: "", id: "" },
 };
@@ -75,7 +75,14 @@ const food = createSlice({
     updateFood(state) {
       state.foodIsUpdated = !state.foodIsUpdated;
     },
-    setDisplayMenu(state, action) {
+
+    setDisplayMenu(
+      state,
+      action: {
+        type: string;
+        payload: { type: string; action: string; id: string };
+      }
+    ) {
       state.displayMenu.value = !state.displayMenu.value;
       state.displayMenu.type = action.payload.type;
       state.displayMenu.action = action.payload.action;

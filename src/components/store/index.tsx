@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import currentDate from "./date-slice";
 import tasks from "./task-slice";
 import food from "./food-slice";
@@ -15,5 +15,5 @@ const store = configureStore({
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export type RootState = ReturnType<typeof store.getState>;
-
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 export default store;

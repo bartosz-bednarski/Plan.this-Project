@@ -2,14 +2,12 @@ import { useState } from "react";
 import classes from "./MenuForm.module.css";
 import { sendNewMenuMeal, updateMenuMeal } from "../store/menu-actions";
 import { menuActions } from "../store/menu-slice";
-import { useSelector } from "react-redux";
-import { RootState, useAppDispatch } from "../store";
-const MenuForm = () => {
+import { useAppDispatch } from "../store";
+import { useAppSelector } from "../store";
+const MenuForm: React.FC = () => {
   const dispatch = useAppDispatch();
-  const actionType = useSelector<RootState>(
-    (state) => state.menuReducer.actionType
-  );
-  const mealToUpdate = useSelector<RootState>(
+  const actionType = useAppSelector((state) => state.menuReducer.actionType);
+  const mealToUpdate = useAppSelector(
     (state) => state.menuReducer.mealToUpdate
   );
   const [type, setType] = useState(mealToUpdate.type);
@@ -96,7 +94,6 @@ const MenuForm = () => {
         <label htmlFor="ingredients">Ingredients</label>
         <textarea
           id="ingredients"
-          type="text"
           value={ingredients}
           onChange={ingredientsHandler}
           required
@@ -104,7 +101,6 @@ const MenuForm = () => {
         <label htmlFor="directions">Directions</label>
         <textarea
           id="directions"
-          type="text"
           value={directions}
           onChange={directionsHandler}
           required

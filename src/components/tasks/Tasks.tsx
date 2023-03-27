@@ -3,24 +3,19 @@ import TasksItem from "./TasksItem";
 import CalendarComponent from "../UI/Calendar";
 import Sticker from "../UI/Sticker";
 import cloudyDay from "../../assets/cloudy_day.png";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, useAppDispatch } from "../store";
+import { useAppDispatch } from "../store";
 import { fetchTaskData } from "../store/task-actions";
 import { useEffect } from "react";
-
-const Tasks: React.FC = ({ weatherData }) => {
+import { useAppSelector } from "../store";
+const Tasks: React.FC<{ weatherData: any }> = (props) => {
   const dispatch = useAppDispatch();
-  const tasks = useSelector(
-    (state: RootState) => state.tasksReducer.todayTasks
+  const tasks = useAppSelector((state) => state.tasksReducer.todayTasks);
+  const date = useAppSelector((state) => state.tasksReducer.date);
+  const dateReducer = useAppSelector((state) => state.dateReducer);
+  const tasksAreUpdated = useAppSelector(
+    (state) => state.tasksReducer.tasksAreUpdated
   );
-  const date = useSelector((state: RootState) => state.tasksReducer.date);
-  const dateReducer = useSelector((state: RootState) => state.dateReducer);
-  const tasksAreUpdated = useSelector(
-    (state: RootState) => state.tasksReducer.tasksAreUpdated
-  );
-  const userName = useSelector(
-    (state: RootState) => state.tasksReducer.userName
-  );
+  const userName = useAppSelector((state) => state.tasksReducer.userName);
 
   useEffect(() => {
     dispatch(fetchTaskData(date));
@@ -61,7 +56,7 @@ const Tasks: React.FC = ({ weatherData }) => {
             <Sticker>
               <img src={cloudyDay} />
               <span className={classes.temperature}>
-                {weatherData.current_weather.temperature} °C
+                {props.weatherData.current_weather.temperature} °C
               </span>
             </Sticker>
           </div>
@@ -70,5 +65,4 @@ const Tasks: React.FC = ({ weatherData }) => {
     </div>
   );
 };
-//Fix the display tasks at currentDay
 export default Tasks;

@@ -2,20 +2,20 @@ import classes from "./Food.module.css";
 import FoodItem from "./FoodItem";
 import { useEffect, useState } from "react";
 import CalendarComponent from "../UI/Calendar";
-import { useDispatch, useSelector } from "react-redux";
 import { fetchMealsData } from "../store/food-actions";
 import { NavLink } from "react-router-dom";
 import breakfastImg from "../../assets/breakfast.png";
 import dinnerImg from "../../assets/dinner.png";
 import supperImg from "../../assets/supper.png";
 import extraImg from "../../assets/extra.svg";
-import { RootState, useAppDispatch } from "../store";
+import { useAppDispatch } from "../store";
+import { useAppSelector } from "../store";
 const Food: React.FC = () => {
   const dispatch = useAppDispatch();
-  const date = useSelector((state: RootState) => state.foodReducer.date);
-  const dateReducer = useSelector((state: RootState) => state.dateReducer);
-  const foodIsUpdated = useSelector(
-    (state: RootState) => state.foodReducer.foodIsUpdated
+  const date = useAppSelector((state) => state.foodReducer.date);
+  const dateReducer = useAppSelector((state) => state.dateReducer);
+  const foodIsUpdated = useAppSelector(
+    (state) => state.foodReducer.foodIsUpdated
   );
   useEffect(() => {
     dispatch(fetchMealsData(date));

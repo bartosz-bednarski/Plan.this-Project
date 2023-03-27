@@ -1,20 +1,18 @@
-import Authentication from "../components/Authentication.tsx";
+import Authentication from "../components/Authentication";
 import app from "../Firebase/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { collection, doc, setDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { redirect } from "react-router-dom";
 import { getFirestore } from "firebase/firestore";
 const AuthenticationPage = () => {
   return <Authentication />;
 };
-// FIX DATABASE !!!!
 export default AuthenticationPage;
 
-export async function action({ request }) {
+export async function action({ request }: any) {
   const db = getFirestore(app);
   console.log(app);
   console.log(db);
@@ -51,32 +49,12 @@ export async function action({ request }) {
             },
           }
         );
-        // return db
-        //   .collection("users")
-        //   .doc(userCredential.user.uid)
-        //   .set({ email: authData.email });
-        // const user = userCredential.user;
-
-        // return user;
       })
       .catch((error) => {
         const errorMessage = error.message;
         return errorMessage;
       });
     if (registerAction) {
-      // console.log(registerAction.uid);
-      // const usersRef = collection(db, "users");
-      // await setDoc(doc(usersRef, "id"), {
-      //   name: "git",
-      // });
-      // try {
-      //   const docRef = doc(db, "users", "xxxx");
-      //   const id = { id: "xxxx" };
-      //   setDoc(docRef, id);
-      //   console.log("Document written with ID: ", docRef.id);
-      // } catch (e) {
-      //   console.error("Error adding document: ", e);
-      // }
       return redirect("?mode=login");
     }
   }

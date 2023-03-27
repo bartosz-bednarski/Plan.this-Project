@@ -5,6 +5,7 @@ export type Meal = {
 };
 
 export type FoodInitialState = {
+  [key: string]: any;
   meals: [];
   date: string;
   todayMeals: any[];
@@ -28,3 +29,7 @@ export type SendUpdateMeal = {
   ingredients: string;
   directions: string;
 };
+
+export function getProperty<T, K extends keyof T>(obj: T, key: K) {
+  return obj[key];
+}

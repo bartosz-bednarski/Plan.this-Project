@@ -1,7 +1,9 @@
 import { menuActions } from "./menu-slice";
 import { getUserId } from "../../Firebase/authUser";
+import { AppDispatch } from ".";
+import { sendUpdateNewMeal } from "../../types/menu";
 export const fetchMenuData = () => {
-  return async (dispatch) => {
+  return async (dispatch: AppDispatch) => {
     const fetchData = async () => {
       const userId = getUserId();
       const response = await fetch(
@@ -19,8 +21,8 @@ export const fetchMenuData = () => {
   };
 };
 
-export const sendNewMenuMeal = (newMeal) => {
-  return async (dispatch) => {
+export const sendNewMenuMeal = (newMeal: sendUpdateNewMeal) => {
+  return async (dispatch: AppDispatch) => {
     const sendRequest = async () => {
       const userId = getUserId();
       const response = await fetch(
@@ -48,8 +50,8 @@ export const sendNewMenuMeal = (newMeal) => {
   };
 };
 
-export const updateMenuMeal = (updatedMeal) => {
-  return async (dispatch) => {
+export const updateMenuMeal = (updatedMeal: sendUpdateNewMeal) => {
+  return async (dispatch: AppDispatch) => {
     const sendRequest = async () => {
       const userId = getUserId();
       const response = await fetch(
@@ -77,8 +79,8 @@ export const updateMenuMeal = (updatedMeal) => {
   };
 };
 
-export const deleteMenuMeal = (menuMeal) => {
-  return async (dispatch) => {
+export const deleteMenuMeal = (menuMeal: { type: string; id: string }) => {
+  return async (dispatch: AppDispatch) => {
     const sendRequest = async () => {
       const userId = getUserId();
       const response = await fetch(

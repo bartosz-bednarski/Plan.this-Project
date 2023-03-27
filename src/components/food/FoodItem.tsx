@@ -1,17 +1,15 @@
 import classes from "./FoodItem.module.css";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import FoodForm from "./FoodForm";
-import { foodActions } from "../store/food-slice";
-import { RootState } from "../store";
+import { FoodInitialState, Meal } from "../../types/food";
+import { useAppSelector } from "../store";
 const FoodItem: React.FC<{ type: string; img: any }> = (props) => {
   const [directionsAreShown, setDirectionsAreShown] = useState(false);
   const directionsHandler = () => {
     setDirectionsAreShown(!directionsAreShown);
   };
-
-  const mealType = useSelector(
-    (state: RootState) => state.foodReducer[props.type]
+  const mealType = useAppSelector(
+    (state) => state.foodReducer[props.type as keyof FoodInitialState]
   );
 
   const [update, setUpdate] = useState(false);
@@ -19,7 +17,7 @@ const FoodItem: React.FC<{ type: string; img: any }> = (props) => {
   const updateHandler = () => {
     setUpdate(!update);
   };
-  const ingredients: string = mealType.ingredients;
+  const ingredients = mealType.ingredients;
   const ingredietsToArray: string[] = ingredients.split(",");
   return (
     <>

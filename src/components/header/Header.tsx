@@ -1,5 +1,4 @@
 import classes from "./Header.module.css";
-import Button from "../UI/Button";
 import Logo from "../UI/Logo";
 import { NavLink } from "react-router-dom";
 import CalendarComponent from "../UI/Calendar";
