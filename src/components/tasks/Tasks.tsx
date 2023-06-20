@@ -23,12 +23,12 @@ const Tasks: React.FC<{ weatherData: any }> = (props) => {
 
   return (
     <div className={classes["hero-container"]}>
-      <div className={classes["hero-box"]}>
-        <div className={classes["hero-left"]}>
-          <span className={classes["header-1"]}>Hello {userName}</span>
-          <span className={classes["header-2"]}>
+      <main className={classes["hero-box"]}>
+        <section className={classes["hero-left"]}>
+          <header className={classes["header-1"]}>Hello {userName}</header>
+          <header className={classes["header-2"]}>
             Let’s jump into a new day !
-          </span>
+          </header>
           <ul className={classes["tasks-list"]}>
             {tasks.map((task) => (
               <TasksItem
@@ -41,13 +41,13 @@ const Tasks: React.FC<{ weatherData: any }> = (props) => {
             ))}
             <TasksItem type="Add new task" time={""} description={""} />
           </ul>
-        </div>
-        <div className={classes["hero-right"]}>
-          <div className={classes["calendar-box"]}>
+        </section>
+        <section className={classes["hero-right"]}>
+          <section className={classes["calendar-box"]}>
             <CalendarComponent />
-          </div>
+          </section>
 
-          <div className={classes["stickers-box"]}>
+          <section className={classes["stickers-box"]}>
             <Sticker>
               <span className={classes["day-name"]}>{dateReducer.day}</span>
               <span className={classes["day-number"]}>{dateReducer.date}</span>
@@ -59,9 +59,9 @@ const Tasks: React.FC<{ weatherData: any }> = (props) => {
                 {props.weatherData.current_weather.temperature} °C
               </span>
             </Sticker>
-          </div>
-        </div>
-      </div>
+          </section>
+        </section>
+      </main>
     </div>
   );
 };

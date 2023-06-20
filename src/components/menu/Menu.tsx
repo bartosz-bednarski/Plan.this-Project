@@ -36,12 +36,12 @@ const Menu: React.FC = () => {
         </Modal>
       )}
       <div className={classes["menu-layout"]}>
-        <div className={classes["menu-container"]}>
-          <div className={classes["menu-column"]}>
-            <div className={classes["logo-box"]}>
+        <main className={classes["menu-container"]}>
+          <section className={classes["menu-column"]}>
+            <header className={classes["logo-box"]}>
               <span className={classes.logo}>Plan.this</span>
               <img src={menuBtn} />
-            </div>
+            </header>
             <span className={classes.title}>FOOD MENU</span>
             <div className={classes["breakfast-container"]}>
               <span className={classes["meal-type"]}>Breakfast</span>
@@ -56,8 +56,8 @@ const Menu: React.FC = () => {
                 ))}
               </ul>
             </div>
-          </div>
-          <div className={classes["menu-column"]}>
+          </section>
+          <section className={classes["menu-column"]}>
             <div className={classes["dinner-container"]}>
               <span className={classes["meal-type"]}>Dinner</span>
               <ul className={classes["meal-list"]}>
@@ -79,8 +79,8 @@ const Menu: React.FC = () => {
                 Add meal
               </button>
             </div>
-          </div>
-          <div className={classes["menu-column"]}>
+          </section>
+          <section className={classes["menu-column"]}>
             <div className={classes["supper-container"]}>
               <span className={classes["meal-type"]}>Supper</span>
               <ul className={classes["meal-list"]}>
@@ -107,8 +107,8 @@ const Menu: React.FC = () => {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
+          </section>
+        </main>
       </div>
     </>
   );

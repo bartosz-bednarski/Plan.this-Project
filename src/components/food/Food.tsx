@@ -26,10 +26,10 @@ const Food: React.FC = () => {
     setCalendarIsShown(!calendarIsShown);
   };
   return (
-    <div className={classes["main-container"]}>
-      <span className={classes["date"]} onClick={calendarHandler}>
+    <main className={classes["main-container"]}>
+      <header className={classes["date"]} onClick={calendarHandler}>
         {`${dateReducer.day} ${dateReducer.date} ${dateReducer.month}`}
-      </span>
+      </header>
       {calendarIsShown && (
         <div className={classes.calendar}>
           <CalendarComponent />
@@ -44,7 +44,7 @@ const Food: React.FC = () => {
       <NavLink to="menu">
         <button className={classes["menu-nav-btn"]}>Menu</button>
       </NavLink>
-    </div>
+    </main>
   );
 };
 
